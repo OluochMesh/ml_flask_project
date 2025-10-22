@@ -1103,3 +1103,27 @@
 2025-10-22 23:04:30,574 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:04:30] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
 2025-10-22 23:04:35,609 INFO app Processing request: ethics.analyze_biases
 2025-10-22 23:04:35,641 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:04:35] "POST /ethics/analyze_biases HTTP/1.1" 200 -
+2025-10-23 00:56:01,979 INFO app Registered blueprint: main with prefix: 
+2025-10-23 00:56:01,998 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-23 00:56:02,011 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-23 00:56:02,018 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-23 00:56:02,025 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-23 00:56:02,117 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-23 00:56:02,118 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-23 00:56:02,228 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-23 00:56:13,430 INFO app Registered blueprint: main with prefix: 
+2025-10-23 00:56:13,433 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-23 00:56:13,438 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-23 00:56:13,440 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-23 00:56:13,442 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-23 00:56:13,450 WARNING werkzeug  * Debugger is active!
+2025-10-23 00:56:13,476 INFO werkzeug  * Debugger PIN: 490-654-077
+2025-10-23 00:56:36,122 INFO app Processing request: main.index
+2025-10-23 00:56:36,254 INFO werkzeug 127.0.0.1 - - [23/Oct/2025 00:56:36] "GET / HTTP/1.1" 200 -
+2025-10-23 00:56:37,865 INFO app Processing request: static
+2025-10-23 00:56:37,899 INFO werkzeug 127.0.0.1 - - [23/Oct/2025 00:56:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-23 00:56:37,977 INFO app Processing request: static
+2025-10-23 00:56:37,980 INFO werkzeug 127.0.0.1 - - [23/Oct/2025 00:56:37] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -

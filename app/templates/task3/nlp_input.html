@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}NLP Analysis - Amazon Reviews{% endblock %}
+
+{% block extra_css %}
+<style>
+    .example-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Header Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-5 fw-bold text-primary">
+                <i class="bi bi-chat-text"></i> Task 3: NLP Analysis
+            </h1>
+            <p class="lead text-muted">
+                Perform Named Entity Recognition and Sentiment Analysis on Amazon Product Reviews
+            </p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Custom Text Analysis Card -->
+        <div class="col-lg-6">
+            <div class="card border-primary h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-pencil-square"></i> Analyze Custom Text
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ url_for('task3.analyze_text') }}" method="POST">
+                        <div class="mb-3">
+                            <label for="text" class="form-label fw-semibold">Enter text for analysis:</label>
+                            <textarea class="form-control" id="text" name="text" rows="8" 
+                                      placeholder="Paste your Amazon review or any text here..." 
+                                      style="resize: vertical;">{{ request.form.get('text', '') }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="bi bi-search"></i> Analyze Text
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Data Analysis Card -->
+        <div class="col-lg-6">
+            <div class="card border-success h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-database"></i> Analyze Sample Reviews
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted mb-4">
+                        Analyze pre-processed Amazon product reviews from our dataset:
+                    </p>
+                    
+                    <form action="{{ url_for('task3.analyze_file') }}" method="POST">
+                        <div class="mb-3">
+                            <label for="sample_size" class="form-label fw-semibold">Number of reviews to analyze:</label>
+                            <select class="form-select" id="sample_size" name="sample_size">
+                                <option value="3">3 reviews</option>
+                                <option value="5" selected>5 reviews</option>
+                                <option value="10">10 reviews</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg w-100">
+                            <i class="bi bi-play-circle"></i> Analyze Sample Data
+                        </button>
+                    </form>
+
+                    <hr class="my-4">
+
+                    <!-- Example Text -->
+                    <div class="example-text">
+                        <h6><i class="bi bi-lightbulb"></i> Example Text</h6>
+                        <p class="small mb-2">"My lovely Pat has one of the GREAT voices of her generation. I have listened to this CD for YEARS and I still LOVE it..."</p>
+                        <button class="btn btn-outline-light btn-sm" onclick="loadExample()">
+                            <i class="bi bi-arrow-clockwise"></i> Load Example
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <h4 class="text-center mb-4">
+                        <i class="bi bi-gear"></i> What This Tool Does
+                    </h4>
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div class="feature-icon text-primary">
+                                <i class="bi bi-tags"></i>
+                            </div>
+                            <h5>Named Entity Recognition</h5>
+                            <p class="text-muted">Extract product names, brands, and entities using spaCy</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-icon text-success">
+                                <i class="bi bi-emoji-smile"></i>
+                            </div>
+                            <h5>Sentiment Analysis</h5>
+                            <p class="text-muted">Analyze text sentiment using rule-based and TextBlob methods</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-icon text-info">
+                                <i class="bi bi-graph-up"></i>
+                            </div>
+                            <h5>Text Statistics</h5>
+                            <p class="text-muted">Get detailed analysis and entity counts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function loadExample() {
+    const exampleText = `My lovely Pat has one of the GREAT voices of her generation. I have listened to this CD for YEARS and I still LOVE it. When I'm in a good mood it makes me feel better. A bad mood just evaporates like sugar in the rain. This CD just oozes LIFE. Vocals are jugs! STUNNING and lyrics just kill. One of life's hidden gems. This is a desert is the CD in my book. Why she never made it big is just beyond me. EVERYONE I play this, no matter black, white, young, old, male, female EVERYBODY says one thing "Who was that singing"?`;
+    document.getElementById('text').value = exampleText;
+}
+</script>
+{% endblock %}

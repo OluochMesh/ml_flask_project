@@ -1,0 +1,432 @@
+{% extends "task2/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">
+                <i class="bi bi-123"></i> Task 2: MNIST Digit Recognition
+            </h1>
+            <p class="lead">Train a CNN model to classify handwritten digits with >95% accuracy</p>
+        </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <ul class="nav nav-tabs mb-4" id="mnistTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="predict-tab" data-bs-toggle="tab" data-bs-target="#predict" type="button">
+                <i class="bi bi-search"></i> Predict
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="train-tab" data-bs-toggle="tab" data-bs-target="#train" type="button">
+                <i class="bi bi-gear"></i> Train Model
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="draw-tab" data-bs-toggle="tab" data-bs-target="#draw" type="button">
+                <i class="bi bi-pencil"></i> Draw Digit
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="samples-tab" data-bs-toggle="tab" data-bs-target="#samples" type="button">
+                <i class="bi bi-collection"></i> Samples
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button">
+                <i class="bi bi-info-circle"></i> Dataset Info
+            </button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="mnistTabContent">
+        
+        <!-- Predict Tab -->
+        <div class="tab-pane fade show active" id="predict" role="tabpanel">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="bi bi-upload"></i> Upload Digit Image</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="predictForm" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="imageFile" class="form-label">Select MNIST-style image</label>
+                                    <input class="form-control" type="file" id="imageFile" name="image" accept=".png,.jpg,.jpeg" required>
+                                    <div class="form-text">
+                                        Upload a 28x28 grayscale image of a handwritten digit (0-9)
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Image Preview</label>
+                                    <div class="text-center">
+                                        <img id="imagePreview" src="#" alt="Preview" class="img-fluid digit-preview" style="display: none;">
+                                        <div id="noPreview" class="text-muted">
+                                            <i class="bi bi-image" style="font-size: 3rem;"></i>
+                                            <p class="mt-2">No image selected</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="bi bi-magic"></i> Predict Digit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Quick Test Section -->
+                    <div class="card mt-4 shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h6 class="mb-0"><i class="bi bi-lightning"></i> Quick Test</h6>
+                        </div>
+                        <div class="card-body">
+                            <p class="small text-muted">Test with sample digits (requires trained model):</p>
+                            <div class="row g-2" id="sampleDigits">
+                                <!-- Sample digits will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card shadow-sm prediction-card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="bi bi-graph-up"></i> Prediction Results</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="predictionResults" style="display: none;">
+                                <div class="alert alert-success">
+                                    <h4 class="alert-heading">Predicted Digit</h4>
+                                    <h1 id="predictedDigit" class="display-4 text-center mb-0"></h1>
+                                </div>
+
+                                <div class="metric-card mb-3">
+                                    <div class="metric-label">Confidence</div>
+                                    <div class="metric-value" id="confidenceValue"></div>
+                                </div>
+
+                                <h6>Probability Distribution:</h6>
+                                <div id="probabilityChart" class="mb-3"></div>
+
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        <h6 class="mb-0">Model Information</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="modelInfo"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="noResults" class="text-center text-muted py-5">
+                                <i class="bi bi-search fa-3x mb-3"></i>
+                                <p>Upload an image or use quick test to see predictions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Train Tab -->
+        <div class="tab-pane fade" id="train" role="tabpanel">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="bi bi-cpu"></i> Model Training</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="trainForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="modelType" class="form-label">Model Architecture</label>
+                                        <select class="form-select" id="modelType" name="model_type">
+                                            <option value="basic">Basic CNN (Faster Training)</option>
+                                            <option value="advanced">Advanced CNN (Better Accuracy)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="epochs" class="form-label">Training Epochs</label>
+                                        <input type="number" class="form-control" id="epochs" name="epochs" value="30" min="10" max="100">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="batchSize" class="form-label">Batch Size</label>
+                                        <input type="number" class="form-control" id="batchSize" name="batch_size" value="32" min="16" max="128">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="learningRate" class="form-label">Learning Rate</label>
+                                        <input type="number" step="0.0001" class="form-control" id="learningRate" name="learning_rate" value="0.001" min="0.0001" max="0.01">
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <button type="submit" class="btn btn-success w-100 btn-lg">
+                                        <i class="bi bi-play-circle"></i> Start Training
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Training Progress -->
+                            <div id="trainingProgress" class="mt-4" style="display: none;">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6 class="mb-0">Training Progress</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="progress mb-3">
+                                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                                                 role="progressbar" style="width: 0%">0%</div>
+                                        </div>
+                                        <div id="progressMessages"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Training Results -->
+                            <div id="trainingResults" style="display: none;" class="mt-4">
+                                <h5>Training Results</h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Test Accuracy</div>
+                                            <div class="metric-value" id="trainAccuracy"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Test Precision</div>
+                                            <div class="metric-value" id="trainPrecision"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Test Recall</div>
+                                            <div class="metric-value" id="trainRecall"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Training Time</div>
+                                            <div class="metric-value" id="trainTime"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h6 class="mt-4">Visualizations:</h6>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="text-center">
+                                            <strong>Sample Predictions</strong>
+                                            <img id="samplePredictions" class="img-fluid rounded shadow" alt="Sample Predictions" style="max-height: 250px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="text-center">
+                                            <strong>Confusion Matrix</strong>
+                                            <img id="confusionMatrix" class="img-fluid rounded shadow" alt="Confusion Matrix" style="max-height: 250px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="bi bi-info-circle"></i> Training Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>CNN Architecture</h6>
+                            <p class="small">
+                                Convolutional Neural Network with multiple layers for feature extraction and classification.
+                            </p>
+                            
+                            <h6>Dataset: MNIST</h6>
+                            <ul class="small">
+                                <li>70,000 handwritten digits</li>
+                                <li>60,000 training samples</li>
+                                <li>10,000 test samples</li>
+                                <li>28x28 grayscale images</li>
+                                <li>10 classes (0-9)</li>
+                            </ul>
+
+                            <h6>Goal: >95% Accuracy</h6>
+                            <p class="small">
+                                The model aims to achieve over 95% accuracy on the test set.
+                            </p>
+
+                            <h6>Training Process:</h6>
+                            <ol class="small">
+                                <li>Data loading & preprocessing</li>
+                                <li>Model architecture setup</li>
+                                <li>Training with validation</li>
+                                <li>Model evaluation</li>
+                                <li>Visualization generation</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Current Model Info -->
+                    <div class="card mt-4 shadow-sm">
+                        <div class="card-header bg-secondary text-white">
+                            <h6 class="mb-0"><i class="bi bi-diagram-3"></i> Current Model</h6>
+                        </div>
+                        <div class="card-body">
+                            <div id="currentModelInfo">
+                                <p class="text-muted small">No model trained yet</p>
+                            </div>
+                            <button class="btn btn-outline-primary btn-sm w-100 mt-2" onclick="loadModelInfo()">
+                                <i class="bi bi-arrow-clockwise"></i> Check Model Status
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Draw Tab -->
+        <div class="tab-pane fade" id="draw" role="tabpanel">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-dark text-white">
+                            <h5 class="mb-0"><i class="bi bi-pencil-square"></i> Draw a Digit</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="drawing-tools mb-3">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <label for="brushSize" class="form-label">Brush Size: <span id="brushSizeValue">15</span></label>
+                                        <input type="range" class="form-range" id="brushSize" min="5" max="30" value="15">
+                                    </div>
+                                    <div class="col-md-6 text-end">
+                                        <button class="btn btn-outline-danger me-2" onclick="clearCanvas()">
+                                            <i class="bi bi-eraser"></i> Clear
+                                        </button>
+                                        <button class="btn btn-primary" onclick="predictDrawing()">
+                                            <i class="bi bi-search"></i> Predict
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <canvas id="drawingCanvas" width="280" height="280" class="mnist-canvas"></canvas>
+                            </div>
+
+                            <div class="mt-3 text-center">
+                                <small class="text-muted">
+                                    Draw a digit (0-9) in the canvas above. The drawing will be automatically resized to 28x28 for prediction.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="bi bi-eye"></i> Preview & Prediction</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <strong>28x28 Preview:</strong>
+                                <div class="mt-2">
+                                    <canvas id="previewCanvas" width="28" height="28" class="digit-preview"></canvas>
+                                </div>
+                            </div>
+
+                            <div id="drawingResults" style="display: none;">
+                                <div class="alert alert-info">
+                                    <h6 class="alert-heading">Prediction</h6>
+                                    <h2 id="drawingPrediction" class="text-center mb-0"></h2>
+                                </div>
+
+                                <div class="metric-card">
+                                    <div class="metric-label">Confidence</div>
+                                    <div class="metric-value" id="drawingConfidence"></div>
+                                </div>
+
+                                <h6 class="mt-3">Probabilities:</h6>
+                                <div id="drawingProbabilities"></div>
+                            </div>
+
+                            <div id="noDrawingResults" class="text-center text-muted py-4">
+                                <i class="bi bi-pencil" style="font-size: 2rem;"></i>
+                                <p class="mt-2">Draw a digit to see prediction</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Samples Tab -->
+        <div class="tab-pane fade" id="samples" role="tabpanel">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-collection-play"></i> MNIST Sample Images</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <button class="btn btn-outline-primary w-100" onclick="loadSampleImages('train')">
+                                <i class="bi bi-download"></i> Load Training Samples
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-outline-info w-100" onclick="loadSampleImages('test')">
+                                <i class="bi bi-download"></i> Load Test Samples
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="sampleImagesContainer" class="text-center">
+                        <div class="text-muted py-5">
+                            <i class="bi bi-images" style="font-size: 3rem;"></i>
+                            <p class="mt-2">Click above to load sample images from the MNIST dataset</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Tab -->
+        <div class="tab-pane fade" id="info" role="tabpanel">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-database"></i> MNIST Dataset Information</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary mb-3" onclick="loadDatasetInfo()">
+                        <i class="bi bi-arrow-clockwise"></i> Load Dataset Info
+                    </button>
+
+                    <div id="datasetInfo" style="display: none;">
+                        <!-- Dataset info will be loaded here -->
+                    </div>
+
+                    <div id="datasetSpinner" class="text-center py-4" style="display: none;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading dataset information...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/mnist.js') }}"></script>
+{% endblock %}

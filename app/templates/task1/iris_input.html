@@ -1,0 +1,611 @@
+{% extends "base.html" %}
+
+{% block title %}Task 1: Iris Classification{% endblock %}
+
+{% block extra_css %}
+<style>
+    .metric-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .metric-label {
+        font-size: 0.9rem;
+        color: #6c757d;
+        font-weight: 500;
+    }
+    .metric-value {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+        margin-top: 5px;
+    }
+    .alert-custom {
+        border-radius: 10px;
+        border: none;
+    }
+    .loading-spinner {
+        text-align: center;
+        padding: 2rem;
+        display: none;
+    }
+    .nav-tabs .nav-link {
+        border-radius: 8px 8px 0 0;
+        font-weight: 500;
+    }
+    .nav-tabs .nav-link.active {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        color: white;
+        border: none;
+    }
+    .progress {
+        height: 20px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+    .progress-bar {
+        border-radius: 10px;
+        background: linear-gradient(90deg, #007bff, #0056b3);
+    }
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+    .btn {
+        border-radius: 8px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="mb-4">
+                <i class="bi bi-flower1"></i> Task 1: Iris Species Classification
+            </h1>
+            <p class="lead">Train a Decision Tree classifier and predict iris species</p>
+        </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <ul class="nav nav-tabs mb-4" id="irisTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="predict-tab" data-bs-toggle="tab" data-bs-target="#predict" type="button" role="tab">
+                <i class="bi bi-search"></i> Predict
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="train-tab" data-bs-toggle="tab" data-bs-target="#train" type="button" role="tab">
+                <i class="bi bi-gear"></i> Train Model
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab">
+                <i class="bi bi-info-circle"></i> Dataset Info
+            </button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="irisTabContent">
+        <!-- Predict Tab -->
+        <div class="tab-pane fade show active" id="predict" role="tabpanel" aria-labelledby="predict-tab">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="bi bi-input-cursor-text"></i> Input Features</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="predictForm">
+                                <div class="mb-3">
+                                    <label for="sepal_length" class="form-label">Sepal Length (cm)</label>
+                                    <input type="number" step="0.1" class="form-control" id="sepal_length" 
+                                           name="sepal_length" value="5.8" min="4.0" max="8.0" required>
+                                    <div class="form-text">Range: 4.0 - 8.0 cm</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="sepal_width" class="form-label">Sepal Width (cm)</label>
+                                    <input type="number" step="0.1" class="form-control" id="sepal_width" 
+                                           name="sepal_width" value="3.0" min="2.0" max="5.0" required>
+                                    <div class="form-text">Range: 2.0 - 5.0 cm</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="petal_length" class="form-label">Petal Length (cm)</label>
+                                    <input type="number" step="0.1" class="form-control" id="petal_length" 
+                                           name="petal_length" value="4.2" min="1.0" max="7.0" required>
+                                    <div class="form-text">Range: 1.0 - 7.0 cm</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="petal_width" class="form-label">Petal Width (cm)</label>
+                                    <input type="number" step="0.1" class="form-control" id="petal_width" 
+                                           name="petal_width" value="1.3" min="0.1" max="3.0" required>
+                                    <div class="form-text">Range: 0.1 - 3.0 cm</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="bi bi-magic"></i> Predict Species
+                                </button>
+                            </form>
+
+                            <!-- Quick Examples -->
+                            <div class="mt-4">
+                                <h6>Quick Examples:</h6>
+                                <button type="button" class="btn btn-sm btn-outline-secondary mb-2 w-100" onclick="fillExample('setosa')">
+                                    Iris Setosa Example
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary mb-2 w-100" onclick="fillExample('versicolor')">
+                                    Iris Versicolor Example
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary w-100" onclick="fillExample('virginica')">
+                                    Iris Virginica Example
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0"><i class="bi bi-graph-up"></i> Prediction Results</h5>
+                        </div>
+                        <div class="card-body">
+                            <div id="predictionResults" style="display: none;">
+                                <div class="alert alert-success alert-custom">
+                                    <h4 class="alert-heading">Predicted Species</h4>
+                                    <h2 id="predictedSpecies" class="mb-0 text-center"></h2>
+                                </div>
+
+                                <div class="metric-card mb-3">
+                                    <div class="metric-label">Confidence</div>
+                                    <div class="metric-value" id="confidence"></div>
+                                </div>
+
+                                <h6>Prediction Probabilities:</h6>
+                                <div id="probabilities" class="mb-3"></div>
+
+                                <h6 class="mt-4">Input Features:</h6>
+                                <table class="table table-sm table-striped">
+                                    <tbody id="inputFeatures"></tbody>
+                                </table>
+                            </div>
+
+                            <div id="noResults" class="text-center text-muted py-5">
+                                <i class="bi bi-search fa-3x mb-3" style="font-size: 3rem;"></i>
+                                <p>Enter features and click predict to see results</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Train Tab -->
+        <div class="tab-pane fade" id="train" role="tabpanel" aria-labelledby="train-tab">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0"><i class="bi bi-gear-fill"></i> Model Training</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="trainForm">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Training Method</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="use_tuning" 
+                                               id="basicTraining" value="false" checked>
+                                        <label class="form-check-label" for="basicTraining">
+                                            Basic Training (Faster)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="use_tuning" 
+                                               id="hyperparameterTuning" value="true">
+                                        <label class="form-check-label" for="hyperparameterTuning">
+                                            Hyperparameter Tuning (Better Performance)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="test_size" class="form-label fw-bold">Test Set Size (%)</label>
+                                    <input type="number" class="form-control" id="test_size" 
+                                           name="test_size" value="20" min="10" max="40" step="5">
+                                    <div class="form-text">Percentage of data used for testing (10-40%)</div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success w-100">
+                                    <i class="bi bi-play-circle"></i> Start Training
+                                </button>
+                            </form>
+
+                            <div id="trainingResults" style="display: none;" class="mt-4">
+                                <h5 class="border-bottom pb-2">Training Results</h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Accuracy</div>
+                                            <div class="metric-value" id="trainAccuracy"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Precision</div>
+                                            <div class="metric-value" id="trainPrecision"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">Recall</div>
+                                            <div class="metric-value" id="trainRecall"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="metric-card">
+                                            <div class="metric-label">F1 Score</div>
+                                            <div class="metric-value" id="trainF1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h6 class="mt-4 border-bottom pb-2">Visualizations:</h6>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="text-center">
+                                            <strong>Confusion Matrix</strong>
+                                            <img id="confusionMatrix" class="img-fluid rounded shadow" alt="Confusion Matrix" style="max-height: 300px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="text-center">
+                                            <strong>Feature Importance</strong>
+                                            <img id="featureImportance" class="img-fluid rounded shadow" alt="Feature Importance" style="max-height: 250px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="text-center">
+                                            <strong>Metrics Comparison</strong>
+                                            <img id="metricsComparison" class="img-fluid rounded shadow" alt="Metrics Comparison" style="max-height: 250px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="trainingSpinner" class="loading-spinner" style="display: none;">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Training...</span>
+                                </div>
+                                <p class="mt-2">Training model... This may take a moment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0"><i class="bi bi-info-circle-fill"></i> Training Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <h6>Decision Tree Classifier</h6>
+                            <p class="small">
+                                A decision tree classifier is trained on the Iris dataset to predict species 
+                                based on flower measurements.
+                            </p>
+                            
+                            <h6>Features Used:</h6>
+                            <ul class="small">
+                                <li>Sepal Length (cm)</li>
+                                <li>Sepal Width (cm)</li>
+                                <li>Petal Length (cm)</li>
+                                <li>Petal Width (cm)</li>
+                            </ul>
+
+                            <h6>Target Classes:</h6>
+                            <ul class="small">
+                                <li>Iris Setosa</li>
+                                <li>Iris Versicolor</li>
+                                <li>Iris Virginica</li>
+                            </ul>
+
+                            <h6>Evaluation Metrics:</h6>
+                            <ul class="small">
+                                <li><strong>Accuracy:</strong> Overall correctness</li>
+                                <li><strong>Precision:</strong> Positive prediction accuracy</li>
+                                <li><strong>Recall:</strong> True positive rate</li>
+                                <li><strong>F1 Score:</strong> Harmonic mean of precision & recall</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dataset Info Tab -->
+        <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <div class="card shadow-sm">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0"><i class="bi bi-database"></i> Dataset Information</h5>
+                </div>
+                <div class="card-body">
+                    <button class="btn btn-primary mb-3" onclick="loadDatasetInfo()">
+                        <i class="bi bi-arrow-clockwise"></i> Load Dataset Info
+                    </button>
+
+                    <div id="datasetInfo" style="display: none;">
+                        <!-- Dataset info will be loaded here -->
+                    </div>
+
+                    <div id="datasetSpinner" class="loading-spinner" style="display: none;">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading dataset information...</p>
+                    </div>
+
+                    <div id="datasetError" class="alert alert-danger" style="display: none;">
+                        <!-- Error messages will be shown here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Quick example functions
+function fillExample(type) {
+    const examples = {
+        setosa: {sl: 5.1, sw: 3.5, pl: 1.4, pw: 0.2},
+        versicolor: {sl: 5.9, sw: 3.0, pl: 4.2, pw: 1.5},
+        virginica: {sl: 6.3, sw: 3.3, pl: 6.0, pw: 2.5}
+    };
+    
+    const example = examples[type];
+    document.getElementById('sepal_length').value = example.sl;
+    document.getElementById('sepal_width').value = example.sw;
+    document.getElementById('petal_length').value = example.pl;
+    document.getElementById('petal_width').value = example.pw;
+}
+
+// Prediction form submission
+document.getElementById('predictForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        sepal_length: parseFloat(document.getElementById('sepal_length').value),
+        sepal_width: parseFloat(document.getElementById('sepal_width').value),
+        petal_length: parseFloat(document.getElementById('petal_length').value),
+        petal_width: parseFloat(document.getElementById('petal_width').value)
+    };
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Predicting...';
+    submitBtn.disabled = true;
+    
+    try {
+        const response = await fetch('{{ url_for("task1.predict") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            displayPredictionResults(result);
+        } else {
+            showError('Prediction Error: ' + result.error);
+        }
+    } catch (error) {
+        showError('Network error: ' + error.message);
+    } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+function displayPredictionResults(result) {
+    document.getElementById('noResults').style.display = 'none';
+    document.getElementById('predictionResults').style.display = 'block';
+    
+    // Update species prediction
+    document.getElementById('predictedSpecies').textContent = result.predicted_species;
+    
+    // Update confidence
+    document.getElementById('confidence').textContent = (result.confidence * 100).toFixed(2) + '%';
+    
+    // Display probabilities with progress bars
+    let probHtml = '';
+    for (const [species, prob] of Object.entries(result.probabilities)) {
+        const percentage = (prob * 100).toFixed(2);
+        probHtml += `
+            <div class="mb-2">
+                <div class="d-flex justify-content-between mb-1">
+                    <span class="small">${species}</span>
+                    <span class="small fw-bold">${percentage}%</span>
+                </div>
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar" role="progressbar" style="width: ${percentage}%"></div>
+                </div>
+            </div>
+        `;
+    }
+    document.getElementById('probabilities').innerHTML = probHtml;
+    
+    // Display input features
+    const features = result.input_features;
+    let featuresHtml = `
+        <tr><td><strong>Sepal Length:</strong></td><td>${features.sepal_length} cm</td></tr>
+        <tr><td><strong>Sepal Width:</strong></td><td>${features.sepal_width} cm</td></tr>
+        <tr><td><strong>Petal Length:</strong></td><td>${features.petal_length} cm</td></tr>
+        <tr><td><strong>Petal Width:</strong></td><td>${features.petal_width} cm</td></tr>
+    `;
+    document.getElementById('inputFeatures').innerHTML = featuresHtml;
+}
+
+// Training form submission
+document.getElementById('trainForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    document.getElementById('trainingSpinner').style.display = 'block';
+    document.getElementById('trainingResults').style.display = 'none';
+    
+    const formData = new FormData(this);
+    
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Training...';
+    submitBtn.disabled = true;
+    
+    try {
+        const response = await fetch('{{ url_for("task1.train_model") }}', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            displayTrainingResults(result);
+        } else {
+            showError('Training Error: ' + result.error);
+        }
+    } catch (error) {
+        showError('Network error: ' + error.message);
+    } finally {
+        document.getElementById('trainingSpinner').style.display = 'none';
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }
+});
+
+function displayTrainingResults(result) {
+    document.getElementById('trainingResults').style.display = 'block';
+    
+    // Update metrics
+    document.getElementById('trainAccuracy').textContent = (result.metrics.accuracy * 100).toFixed(2) + '%';
+    document.getElementById('trainPrecision').textContent = (result.metrics.precision_macro * 100).toFixed(2) + '%';
+    document.getElementById('trainRecall').textContent = (result.metrics.recall_macro * 100).toFixed(2) + '%';
+    document.getElementById('trainF1').textContent = (result.metrics.f1_macro * 100).toFixed(2) + '%';
+    
+    // Load visualization images with cache busting
+    if (result.plots) {
+        const timestamp = new Date().getTime();
+        if (result.plots.confusion_matrix) {
+            document.getElementById('confusionMatrix').src = result.plots.confusion_matrix + '?' + timestamp;
+        }
+        if (result.plots.feature_importance) {
+            document.getElementById('featureImportance').src = result.plots.feature_importance + '?' + timestamp;
+        }
+        if (result.plots.metrics_comparison) {
+            document.getElementById('metricsComparison').src = result.plots.metrics_comparison + '?' + timestamp;
+        }
+    }
+}
+
+// Load dataset info
+async function loadDatasetInfo() {
+    document.getElementById('datasetSpinner').style.display = 'block';
+    document.getElementById('datasetInfo').style.display = 'none';
+    document.getElementById('datasetError').style.display = 'none';
+    
+    try {
+        const response = await fetch('{{ url_for("task1.dataset_info") }}');
+        const result = await response.json();
+        
+        if (result.success) {
+            displayDatasetInfo(result.statistics);
+        } else {
+            document.getElementById('datasetError').textContent = 'Error: ' + result.error;
+            document.getElementById('datasetError').style.display = 'block';
+        }
+    } catch (error) {
+        document.getElementById('datasetError').textContent = 'Network error: ' + error.message;
+        document.getElementById('datasetError').style.display = 'block';
+    } finally {
+        document.getElementById('datasetSpinner').style.display = 'none';
+    }
+}
+
+function displayDatasetInfo(stats) {
+    document.getElementById('datasetInfo').style.display = 'block';
+    
+    let html = `
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h6>Dataset Shape</h6>
+                        <p><strong>Rows:</strong> ${stats.shape[0]}<br>
+                        <strong>Columns:</strong> ${stats.shape[1]}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h6>Species Distribution</h6>
+    `;
+    
+    for (const [species, count] of Object.entries(stats.species_distribution)) {
+        html += `<p class="mb-1"><strong>${species}:</strong> ${count} samples</p>`;
+    }
+    
+    html += `
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card bg-light mt-3">
+            <div class="card-body">
+                <h6>Missing Values</h6>
+                <table class="table table-sm table-bordered">
+                    <thead class="table-dark">
+                        <tr><th>Column</th><th>Missing Count</th></tr>
+                    </thead>
+                    <tbody>
+    `;
+    
+    for (const [column, count] of Object.entries(stats.missing_values)) {
+        html += `<tr><td>${column}</td><td>${count}</td></tr>`;
+    }
+    
+    html += `
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('datasetInfo').innerHTML = html;
+}
+
+// Utility function to show errors
+function showError(message) {
+    alert(message); // You can replace this with a more sophisticated notification system
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    // Set default values or initialize any components
+    console.log('Iris Classification page loaded');
+});
+</script>
+{% endblock %}

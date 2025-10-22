@@ -1,0 +1,307 @@
+{% extends "base.html" %}
+
+{% block title %}Train Iris Model - ML Portfolio{% endblock %}
+
+{% block extra_css %}
+<style>
+    .training-card {
+        border-left: 4px solid #28a745;
+    }
+    .progress {
+        height: 25px;
+    }
+    .metric-card {
+        transition: transform 0.2s;
+    }
+    .metric-card:hover {
+        transform: translateY(-2px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card training-card">
+            <div class="card-header">
+                <h4 class="mb-0">🛠️ Train Iris Classification Model</h4>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    Configure and train a machine learning model to classify iris flowers based on their measurements.
+                </p>
+
+                <form id="trainingForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="test_size" class="form-label">Test Set Size</label>
+                            <input type="number" class="form-control" id="test_size" 
+                                   name="test_size" min="0.1" max="0.5" step="0.05" value="0.2">
+                            <div class="form-text">Proportion of data to use for testing (0.1 - 0.5)</div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="use_tuning" class="form-label">Hyperparameter Tuning</label>
+                            <select class="form-select" id="use_tuning" name="use_tuning">
+                                <option value="false">No Tuning (Faster)</option>
+                                <option value="true">With Grid Search (Better Accuracy)</option>
+                            </select>
+                            <div class="form-text">Grid search may take longer but often improves performance</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="fas fa-play"></i> Start Training
+                        </button>
+                        <a href="{{ url_for('task1.index') }}" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-arrow-left"></i> Back to Prediction
+                        </a>
+                    </div>
+                </form>
+
+                <!-- Training Progress -->
+                <div id="trainingProgress" class="mt-4" style="display: none;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Training Progress</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="progress mb-3">
+                                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                                     role="progressbar" style="width: 0%">0%</div>
+                            </div>
+                            <div id="progressMessages"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div id="trainingResults" class="mt-4" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Training Information</h5>
+            </div>
+            <div class="card-body">
+                <h6>Algorithm: Decision Tree</h6>
+                <p>Decision trees are interpretable and work well for classification tasks with clear feature boundaries.</p>
+                
+                <h6>Dataset: Iris Species</h6>
+                <ul>
+                    <li>150 samples</li>
+                    <li>3 classes (species)</li>
+                    <li>4 features</li>
+                    <li>No missing values</li>
+                </ul>
+                
+                <h6>Training Process:</h6>
+                <ol>
+                    <li>Data preprocessing</li>
+                    <li>Train-test split</li>
+                    <li>Model training</li>
+                    <li>Hyperparameter tuning (optional)</li>
+                    <li>Model evaluation</li>
+                    <li>Save model</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('trainingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.innerHTML;
+        
+        // Show progress
+        const progressDiv = document.getElementById('trainingProgress');
+        const progressBar = document.getElementById('progressBar');
+        const progressMessages = document.getElementById('progressMessages');
+        
+        progressDiv.style.display = 'block';
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Training...';
+        submitButton.disabled = true;
+        
+        // Simulate progress updates
+        const progressStages = [
+            {message: "Loading and preprocessing data...", progress: 20},
+            {message: "Splitting dataset...", progress: 40},
+            {message: "Training model...", progress: 60},
+            {message: "Evaluating performance...", progress: 80},
+            {message: "Saving model...", progress: 100}
+        ];
+        
+        let currentStage = 0;
+        const progressInterval = setInterval(() => {
+            if (currentStage < progressStages.length) {
+                const stage = progressStages[currentStage];
+                progressBar.style.width = stage.progress + '%';
+                progressBar.textContent = stage.progress + '%';
+                
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'text-success';
+                messageDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${stage.message}`;
+                progressMessages.appendChild(messageDiv);
+                
+                currentStage++;
+            }
+        }, 800);
+        
+        try {
+            const response = await fetch("{{ url_for('task1.train_model') }}", {
+                method: 'POST',
+                body: formData
+            });
+            
+            clearInterval(progressInterval);
+            progressBar.style.width = '100%';
+            progressBar.textContent = '100%';
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                displayTrainingResults(result);
+            } else {
+                showTrainingError(result.error);
+            }
+        } catch (error) {
+            clearInterval(progressInterval);
+            showTrainingError('Network error: ' + error.message);
+        } finally {
+            submitButton.innerHTML = originalText;
+            submitButton.disabled = false;
+        }
+    });
+
+    function displayTrainingResults(result) {
+        const resultsDiv = document.getElementById('trainingResults');
+        
+        let metricsHtml = '';
+        if (result.metrics) {
+            metricsHtml = `
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <div class="card metric-card border-success">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">${(result.metrics.accuracy * 100).toFixed(1)}%</h3>
+                                <p class="mb-0">Accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card metric-card border-primary">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">${(result.metrics.precision_macro * 100).toFixed(1)}%</h3>
+                                <p class="mb-0">Precision</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card metric-card border-info">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">${(result.metrics.recall_macro * 100).toFixed(1)}%</h3>
+                                <p class="mb-0">Recall</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card metric-card border-warning">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">${(result.metrics.f1_macro * 100).toFixed(1)}%</h3>
+                                <p class="mb-0">F1 Score</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        let featureImportanceHtml = '';
+        if (result.feature_importance) {
+            featureImportanceHtml = `
+                <h5 class="mt-4">Feature Importance</h5>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Importance</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            for (const [feature, importance] of Object.entries(result.feature_importance)) {
+                const percentage = (importance * 100).toFixed(1);
+                featureImportanceHtml += `
+                    <tr>
+                        <td>${feature}</td>
+                        <td>${importance.toFixed(4)}</td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" 
+                                     style="width: ${percentage}%">${percentage}%</div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+            }
+            
+            featureImportanceHtml += `
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+        
+        resultsDiv.innerHTML = `
+            <div class="alert alert-success">
+                <h4 class="alert-heading">
+                    <i class="fas fa-check-circle"></i> Training Completed Successfully!
+                </h4>
+                <p class="mb-0">${result.message}</p>
+            </div>
+            ${metricsHtml}
+            ${featureImportanceHtml}
+            <div class="mt-4">
+                <a href="{{ url_for('task1.index') }}" class="btn btn-primary">
+                    <i class="fas fa-brain"></i> Start Predicting
+                </a>
+                <a href="{{ url_for('task1.get_metrics') }}" class="btn btn-outline-info">
+                    <i class="fas fa-chart-bar"></i> View Detailed Metrics
+                </a>
+            </div>
+        `;
+        
+        resultsDiv.style.display = 'block';
+        resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showTrainingError(message) {
+        const resultsDiv = document.getElementById('trainingResults');
+        
+        resultsDiv.innerHTML = `
+            <div class="alert alert-danger">
+                <h4 class="alert-heading">
+                    <i class="fas fa-exclamation-triangle"></i> Training Failed
+                </h4>
+                <p class="mb-0">${message}</p>
+            </div>
+        `;
+        
+        resultsDiv.style.display = 'block';
+        resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+{% endblock %}

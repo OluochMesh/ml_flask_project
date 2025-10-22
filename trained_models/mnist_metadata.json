@@ -1,0 +1,13 @@
+{
+  "model_type": "CNN",
+  "input_shape": [
+    28,
+    28,
+    1
+  ],
+  "num_classes": 10,
+  "training_date": "2025-10-21T00:24:18.658045",
+  "training_time": "0:20:36.881048",
+  "total_parameters": 537578,
+  "test_accuracy": 0.9921666383743286
+}

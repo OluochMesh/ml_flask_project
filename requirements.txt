@@ -1,0 +1,43 @@
+# Flask and Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+Werkzeug==3.0.1
+
+# Data Processing and Analysis
+pandas==2.1.4
+numpy==1.26.2
+
+# Machine Learning - Classical ML (Task 1)
+scikit-learn==1.3.2
+
+# Deep Learning - TensorFlow (Task 2)
+tensorflow==2.15.0
+keras==2.15.0
+
+# NLP (Task 3)
+spacy==3.7.2
+textblob==0.17.1
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+
+# Visualization
+matplotlib==3.8.2
+seaborn==0.13.0
+plotly==5.18.0
+
+# Image Processing
+Pillow==10.1.0
+opencv-python==4.8.1.78
+
+# Utilities
+python-dotenv==1.0.0
+joblib==1.3.2
+
+# Ethics and Fairness
+fairlearn==0.9.0
+
+# Testing
+pytest==7.4.3
+pytest-flask==1.3.0
+
+# Development
+python-dateutil==2.8.2

@@ -1,0 +1,585 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Results - Iris Classification{% endblock %}
+
+{% block extra_css %}
+<style>
+    .result-card {
+        border-left: 4px solid #28a745;
+        transition: transform 0.3s ease;
+    }
+    .result-card:hover {
+        transform: translateY(-2px);
+    }
+    .confidence-high {
+        color: #28a745;
+        font-weight: bold;
+    }
+    .confidence-medium {
+        color: #ffc107;
+        font-weight: bold;
+    }
+    .confidence-low {
+        color: #dc3545;
+        font-weight: bold;
+    }
+    .probability-bar {
+        height: 25px;
+        background: linear-gradient(90deg, #e9ecef, #007bff);
+        border-radius: 5px;
+        transition: width 0.5s ease;
+    }
+    .species-badge {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+    .feature-table {
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+    .metric-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .visualization-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url_for('task1.index') }}">Iris Classification</a></li>
+                    <li class="breadcrumb-item active">Prediction Results</li>
+                </ol>
+            </nav>
+            
+            <h1 class="display-5 fw-bold">
+                <i class="bi bi-flower1 text-success"></i> Prediction Results
+            </h1>
+            <p class="lead">Iris species classification based on input measurements</p>
+        </div>
+    </div>
+
+    <!-- Main Results -->
+    <div class="row">
+        <!-- Prediction Card -->
+        <div class="col-lg-8">
+            <div class="card result-card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0"><i class="bi bi-check-circle"></i> Prediction Complete</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-center">
+                            <div class="mb-3">
+                                <span class="badge species-badge bg-success" id="speciesBadge">
+                                    Loading...
+                                </span>
+                            </div>
+                            <h3 id="predictedSpecies" class="fw-bold text-success">-</h3>
+                            <div class="mt-3">
+                                <span class="confidence-high" id="confidenceText">Confidence: -</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Probability Distribution</h5>
+                            <div id="probabilityChart">
+                                <!-- Probabilities will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Features -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-input-cursor-text"></i> Input Features</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover feature-table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Value</th>
+                                    <th>Unit</th>
+                                    <th>Normal Range</th>
+                                </tr>
+                            </thead>
+                            <tbody id="featuresTable">
+                                <!-- Features will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar with Actions and Info -->
+        <div class="col-lg-4">
+            <!-- Confidence Meter -->
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-speedometer2"></i> Confidence Level</h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-3">
+                        <div id="confidenceGauge" style="height: 120px;"></div>
+                    </div>
+                    <div id="confidenceDescription" class="small text-muted">
+                        Confidence level indicates prediction certainty
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card mb-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0"><i class="bi bi-lightning"></i> Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('task1.index') }}" class="btn btn-primary">
+                            <i class="bi bi-arrow-left"></i> New Prediction
+                        </a>
+                        <button class="btn btn-outline-success" onclick="savePrediction()">
+                            <i class="bi bi-download"></i> Save Results
+                        </button>
+                        <button class="btn btn-outline-info" onclick="shareResults()">
+                            <i class="bi bi-share"></i> Share Results
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Species Information -->
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0"><i class="bi bi-info-circle"></i> About Iris Species</h5>
+                </div>
+                <div class="card-body">
+                    <div id="speciesInfo">
+                        <!-- Species info will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional Visualizations -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card visualization-card">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="bi bi-graph-up"></i> Feature Analysis</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Feature Comparison</h6>
+                            <canvas id="featureRadarChart" width="400" height="300"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Species Characteristics</h6>
+                            <div id="speciesCharacteristics">
+                                <!-- Characteristics will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Information -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0"><i class="bi bi-cpu"></i> Model Information</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-label">Model Type</div>
+                                <div class="metric-value" id="modelType">Decision Tree</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-label">Training Date</div>
+                                <div class="metric-value" id="trainingDate">-</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-label">Accuracy</div>
+                                <div class="metric-value" id="modelAccuracy">-</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="metric-card">
+                                <div class="metric-label">Inference Time</div>
+                                <div class="metric-value" id="inferenceTime">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Chart.js for visualizations -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadPredictionResults();
+    loadModelInfo();
+});
+
+// Load prediction results from session storage or URL parameters
+function loadPredictionResults() {
+    // Try to get results from session storage first
+    const savedResults = sessionStorage.getItem('irisPredictionResults');
+    
+    if (savedResults) {
+        const results = JSON.parse(savedResults);
+        displayResults(results);
+    } else {
+        // Try to get from URL parameters (for direct linking)
+        const urlParams = new URLSearchParams(window.location.search);
+        const resultData = urlParams.get('results');
+        
+        if (resultData) {
+            try {
+                const results = JSON.parse(decodeURIComponent(resultData));
+                displayResults(results);
+            } catch (e) {
+                showError('Unable to load prediction results');
+            }
+        } else {
+            showError('No prediction results found. Please make a prediction first.');
+        }
+    }
+}
+
+function displayResults(result) {
+    // Update main prediction
+    document.getElementById('predictedSpecies').textContent = result.predicted_species;
+    document.getElementById('speciesBadge').textContent = result.predicted_species;
+    
+    // Update confidence
+    const confidence = result.confidence * 100;
+    document.getElementById('confidenceText').textContent = `Confidence: ${confidence.toFixed(2)}%`;
+    
+    // Set confidence class
+    const confidenceElem = document.getElementById('confidenceText');
+    confidenceElem.className = '';
+    if (confidence >= 80) {
+        confidenceElem.classList.add('confidence-high');
+    } else if (confidence >= 60) {
+        confidenceElem.classList.add('confidence-medium');
+    } else {
+        confidenceElem.classList.add('confidence-low');
+    }
+    
+    // Display probabilities
+    displayProbabilities(result.probabilities);
+    
+    // Display input features
+    displayFeatures(result.input_features);
+    
+    // Display species information
+    displaySpeciesInfo(result.predicted_species);
+    
+    // Create visualizations
+    createFeatureRadarChart(result.input_features);
+    updateConfidenceGauge(confidence);
+}
+
+function displayProbabilities(probabilities) {
+    const container = document.getElementById('probabilityChart');
+    let html = '';
+    
+    for (const [species, prob] of Object.entries(probabilities)) {
+        const percentage = (prob * 100).toFixed(2);
+        const isPredicted = prob === Math.max(...Object.values(probabilities));
+        
+        html += `
+            <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <span class="${isPredicted ? 'fw-bold text-success' : ''}">${species}</span>
+                    <span class="${isPredicted ? 'fw-bold text-success' : ''}">${percentage}%</span>
+                </div>
+                <div class="progress" style="height: 20px;">
+                    <div class="progress-bar ${isPredicted ? 'bg-success' : 'bg-secondary'}" 
+                         role="progressbar" style="width: ${percentage}%"
+                         aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+    
+    container.innerHTML = html;
+}
+
+function displayFeatures(features) {
+    const tableBody = document.getElementById('featuresTable');
+    const ranges = {
+        sepal_length: { min: 4.3, max: 7.9 },
+        sepal_width: { min: 2.0, max: 4.4 },
+        petal_length: { min: 1.0, max: 6.9 },
+        petal_width: { min: 0.1, max: 2.5 }
+    };
+    
+    const featureNames = {
+        sepal_length: 'Sepal Length',
+        sepal_width: 'Sepal Width', 
+        petal_length: 'Petal Length',
+        petal_width: 'Petal Width'
+    };
+    
+    let html = '';
+    for (const [key, value] of Object.entries(features)) {
+        const range = ranges[key];
+        const inRange = value >= range.min && value <= range.max;
+        const rowClass = inRange ? '' : 'table-warning';
+        
+        html += `
+            <tr class="${rowClass}">
+                <td><strong>${featureNames[key]}</strong></td>
+                <td>${value}</td>
+                <td>cm</td>
+                <td>${range.min} - ${range.max} cm</td>
+            </tr>
+        `;
+    }
+    
+    tableBody.innerHTML = html;
+}
+
+function displaySpeciesInfo(species) {
+    const infoContainer = document.getElementById('speciesInfo');
+    const characteristicsContainer = document.getElementById('speciesCharacteristics');
+    
+    const speciesData = {
+        'Iris Setosa': {
+            description: 'Easily distinguishable species with distinctive features.',
+            characteristics: ['Short petals', 'Wide sepals', 'Native to North America', 'Early bloomer'],
+            habitat: 'Cold climates, wetlands',
+            blooming: 'Early spring'
+        },
+        'Iris Versicolor': {
+            description: 'Medium-sized iris with beautiful blue-violet flowers.',
+            characteristics: ['Medium petals', 'Moderate sepal width', 'Adaptable species', 'Common in gardens'],
+            habitat: 'Wetlands, marshes', 
+            blooming: 'Mid spring'
+        },
+        'Iris Virginica': {
+            description: 'Largest of the three species with impressive flowers.',
+            characteristics: ['Long petals', 'Narrow sepals', 'Southern species', 'Late bloomer'],
+            habitat: 'Southern wetlands',
+            blooming: 'Late spring'
+        }
+    };
+    
+    const data = speciesData[species] || {
+        description: 'Species information not available.',
+        characteristics: ['No data available'],
+        habitat: 'Unknown',
+        blooming: 'Unknown'
+    };
+    
+    // Update sidebar info
+    infoContainer.innerHTML = `
+        <h6>${species}</h6>
+        <p class="small">${data.description}</p>
+        <p class="small mb-1"><strong>Habitat:</strong> ${data.habitat}</p>
+        <p class="small"><strong>Blooming:</strong> ${data.blooming}</p>
+    `;
+    
+    // Update characteristics
+    let characteristicsHtml = '<ul class="list-unstyled">';
+    data.characteristics.forEach(char => {
+        characteristicsHtml += `<li class="mb-1"><i class="bi bi-check-circle text-success"></i> ${char}</li>`;
+    });
+    characteristicsHtml += '</ul>';
+    characteristicsContainer.innerHTML = characteristicsHtml;
+}
+
+function createFeatureRadarChart(features) {
+    const ctx = document.getElementById('featureRadarChart').getContext('2d');
+    
+    // Normalize features for radar chart (0-1 scale)
+    const maxValues = {
+        sepal_length: 7.9,
+        sepal_width: 4.4,
+        petal_length: 6.9,
+        petal_width: 2.5
+    };
+    
+    const normalizedFeatures = {};
+    for (const [key, value] of Object.entries(features)) {
+        normalizedFeatures[key] = value / maxValues[key];
+    }
+    
+    const chart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width'],
+            datasets: [{
+                label: 'Your Flower',
+                data: [
+                    normalizedFeatures.sepal_length,
+                    normalizedFeatures.sepal_width, 
+                    normalizedFeatures.petal_length,
+                    normalizedFeatures.petal_width
+                ],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 1,
+                    ticks: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+}
+
+function updateConfidenceGauge(confidence) {
+    const gaugeContainer = document.getElementById('confidenceGauge');
+    
+    // Simple gauge visualization
+    gaugeContainer.innerHTML = `
+        <div class="text-center">
+            <div class="display-4 fw-bold ${getConfidenceColor(confidence)}">
+                ${confidence.toFixed(1)}%
+            </div>
+            <div class="progress mt-2" style="height: 10px;">
+                <div class="progress-bar ${getConfidenceColor(confidence, true)}" 
+                     style="width: ${confidence}%"></div>
+            </div>
+        </div>
+    `;
+}
+
+function getConfidenceColor(confidence, isBar = false) {
+    if (confidence >= 80) return isBar ? 'bg-success' : 'text-success';
+    if (confidence >= 60) return isBar ? 'bg-warning' : 'text-warning';
+    return isBar ? 'bg-danger' : 'text-danger';
+}
+
+function loadModelInfo() {
+    // In a real application, this would fetch from an API
+    // For now, we'll use mock data
+    document.getElementById('modelType').textContent = 'Decision Tree';
+    document.getElementById('trainingDate').textContent = new Date().toLocaleDateString();
+    document.getElementById('modelAccuracy').textContent = '95.2%';
+    document.getElementById('inferenceTime').textContent = '< 50ms';
+}
+
+function savePrediction() {
+    const results = sessionStorage.getItem('irisPredictionResults');
+    if (results) {
+        const blob = new Blob([results], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `iris_prediction_${new Date().getTime()}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        showToast('Results saved successfully!', 'success');
+    }
+}
+
+function shareResults() {
+    if (navigator.share) {
+        const results = JSON.parse(sessionStorage.getItem('irisPredictionResults'));
+        navigator.share({
+            title: 'Iris Species Prediction',
+            text: `My iris flower was identified as ${results.predicted_species} with ${(results.confidence * 100).toFixed(1)}% confidence!`,
+            url: window.location.href
+        });
+    } else {
+        // Fallback: copy to clipboard
+        const results = JSON.parse(sessionStorage.getItem('irisPredictionResults'));
+        const text = `Iris Prediction: ${results.predicted_species} (${(results.confidence * 100).toFixed(1)}% confidence)`;
+        navigator.clipboard.writeText(text).then(() => {
+            showToast('Results copied to clipboard!', 'success');
+        });
+    }
+}
+
+function showError(message) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+    alertDiv.innerHTML = `
+        <strong>Error!</strong> ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    document.querySelector('.container').prepend(alertDiv);
+}
+
+function showToast(message, type = 'info') {
+    // Simple toast implementation
+    const toast = document.createElement('div');
+    toast.className = `toast align-items-center text-white bg-${type} border-0`;
+    toast.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    `;
+    
+    const container = document.createElement('div');
+    container.className = 'toast-container position-fixed top-0 end-0 p-3';
+    container.appendChild(toast);
+    document.body.appendChild(container);
+    
+    const bsToast = new bootstrap.Toast(toast);
+    bsToast.show();
+    
+    toast.addEventListener('hidden.bs.toast', () => {
+        container.remove();
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{
+  "model_type": "decision_tree",
+  "best_params": null,
+  "feature_importance": {
+    "SepalLengthCm": 0.0062499999999999995,
+    "SepalWidthCm": 0.02916666666666666,
+    "PetalLengthCm": 0.5585682957393484,
+    "PetalWidthCm": 0.406015037593985
+  },
+  "training_date": "2025-10-20T00:55:09.771941",
+  "model_class": "DecisionTreeClassifier"
+}

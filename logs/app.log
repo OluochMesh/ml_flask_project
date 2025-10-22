@@ -1,0 +1,1105 @@
+2025-10-19 23:33:11,684 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:33:11,694 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:33:11,698 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:33:11,876 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-19 23:33:11,876 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-19 23:33:11,986 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-19 23:33:14,027 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:33:14,030 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:33:14,031 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:33:14,040 WARNING werkzeug  * Debugger is active!
+2025-10-19 23:33:14,229 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-19 23:34:10,966 INFO app Processing request: main.index
+2025-10-19 23:34:11,246 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:11] "GET / HTTP/1.1" 200 -
+2025-10-19 23:34:11,999 INFO app Processing request: static
+2025-10-19 23:34:12,000 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-19 23:34:12,006 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:12] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2025-10-19 23:34:12,001 INFO app Processing request: static
+2025-10-19 23:34:12,368 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:12] "GET /static/js/main.js HTTP/1.1" 200 -
+2025-10-19 23:34:17,302 INFO app Processing request: None
+2025-10-19 23:34:17,302 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-19 23:34:17,303 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-19 23:34:34,805 INFO app Processing request: task1.index
+2025-10-19 23:34:34,839 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:34] "GET /task1/ HTTP/1.1" 200 -
+2025-10-19 23:34:34,890 INFO app Processing request: static
+2025-10-19 23:34:34,891 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-19 23:34:34,898 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:34] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2025-10-19 23:34:34,920 INFO app Processing request: static
+2025-10-19 23:34:34,924 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:34] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-19 23:34:43,534 INFO app Processing request: task1.train_model
+2025-10-19 23:34:43,618 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:43] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-19 23:34:57,747 INFO app Processing request: task1.dataset_info
+2025-10-19 23:34:57,748 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:57] "[33mGET /task1/dataset-info HTTP/1.1[0m" 404 -
+2025-10-19 23:34:59,688 INFO app Processing request: task1.dataset_info
+2025-10-19 23:34:59,689 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:34:59] "[33mGET /task1/dataset-info HTTP/1.1[0m" 404 -
+2025-10-19 23:35:21,270 INFO app Processing request: static
+2025-10-19 23:35:21,271 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-19 23:35:21,272 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:35:21] "[33mGET /static/css/style.css HTTP/1.1[0m" 404 -
+2025-10-19 23:35:21,322 INFO app Processing request: None
+2025-10-19 23:35:21,323 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-19 23:35:21,325 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:35:21] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-19 23:42:05,587 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:42:05,590 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:42:05,591 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:42:05,610 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-19 23:42:05,610 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-19 23:42:05,622 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-19 23:42:07,379 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:42:07,381 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:42:07,383 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:42:07,396 WARNING werkzeug  * Debugger is active!
+2025-10-19 23:42:07,398 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-19 23:42:22,204 INFO app Processing request: main.index
+2025-10-19 23:42:22,272 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:22] "GET / HTTP/1.1" 200 -
+2025-10-19 23:42:22,687 INFO app Processing request: static
+2025-10-19 23:42:22,752 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:22] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-10-19 23:42:22,758 INFO app Processing request: static
+2025-10-19 23:42:22,762 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:22] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-19 23:42:32,256 INFO app Processing request: task1.index
+2025-10-19 23:42:32,275 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:32] "GET /task1/ HTTP/1.1" 200 -
+2025-10-19 23:42:32,328 INFO app Processing request: static
+2025-10-19 23:42:32,329 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-19 23:42:32,343 INFO app Processing request: static
+2025-10-19 23:42:32,345 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-19 23:42:36,479 INFO app Processing request: task1.dataset_info
+2025-10-19 23:42:36,680 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:36] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-19 23:42:44,655 INFO app Processing request: task1.train_model
+2025-10-19 23:42:44,708 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:42:44] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-19 23:46:24,869 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-19 23:46:24,937 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-19 23:46:25,035 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-19 23:46:31,300 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-19 23:50:44,019 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:50:44,021 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:50:44,023 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:50:44,036 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-19 23:50:44,036 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-19 23:50:44,042 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-19 23:50:48,503 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:50:48,506 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:50:48,507 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:50:48,520 WARNING werkzeug  * Debugger is active!
+2025-10-19 23:50:48,522 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-19 23:51:23,710 INFO app Processing request: main.index
+2025-10-19 23:51:23,742 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:23] "GET / HTTP/1.1" 200 -
+2025-10-19 23:51:24,101 INFO app Processing request: static
+2025-10-19 23:51:24,110 INFO app Processing request: static
+2025-10-19 23:51:24,131 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-19 23:51:24,144 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:24] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-19 23:51:28,160 INFO app Processing request: task1.index
+2025-10-19 23:51:28,178 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:28] "GET /task1/ HTTP/1.1" 200 -
+2025-10-19 23:51:28,247 INFO app Processing request: static
+2025-10-19 23:51:28,248 INFO app Processing request: static
+2025-10-19 23:51:28,251 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-19 23:51:28,253 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:28] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-19 23:51:35,663 INFO app Processing request: task1.dataset_info
+2025-10-19 23:51:35,716 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:35] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-19 23:51:43,126 INFO app Processing request: task1.train_model
+2025-10-19 23:51:43,184 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:51:43] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-19 23:52:36,387 INFO app Processing request: task1.train_model
+2025-10-19 23:52:36,443 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:52:36] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-19 23:56:27,551 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-19 23:56:27,560 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-19 23:56:27,615 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-19 23:56:35,855 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-19 23:56:39,668 INFO app Registered blueprint: main with prefix: 
+2025-10-19 23:56:39,671 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-19 23:56:39,673 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-19 23:56:39,691 WARNING werkzeug  * Debugger is active!
+2025-10-19 23:56:39,694 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-19 23:56:40,239 INFO app Processing request: task1.index
+2025-10-19 23:56:40,271 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:56:40] "GET /task1/ HTTP/1.1" 200 -
+2025-10-19 23:56:41,360 INFO app Processing request: static
+2025-10-19 23:56:41,377 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:56:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-19 23:56:41,379 INFO app Processing request: static
+2025-10-19 23:56:41,382 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:56:41] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-19 23:56:46,909 INFO app Processing request: task1.dataset_info
+2025-10-19 23:56:46,948 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:56:46] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-19 23:56:55,942 INFO app Processing request: task1.train_model
+2025-10-19 23:56:56,000 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:56:56] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-19 23:57:09,145 INFO app Processing request: task1.train_model
+2025-10-19 23:57:09,203 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:57:09] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-19 23:57:16,977 INFO app Processing request: task1.train_model
+2025-10-19 23:57:17,032 INFO werkzeug 127.0.0.1 - - [19/Oct/2025 23:57:17] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-20 00:00:45,134 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-20 00:00:45,197 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-20 00:00:45,199 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-20 00:01:06,896 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:01:06,899 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:01:06,901 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:01:06,917 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 00:01:06,918 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 00:01:06,928 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 00:01:09,344 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:01:09,352 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:01:09,357 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:01:09,375 WARNING werkzeug  * Debugger is active!
+2025-10-20 00:01:09,378 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-20 00:01:38,973 INFO app Processing request: main.index
+2025-10-20 00:01:39,122 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:39] "GET / HTTP/1.1" 200 -
+2025-10-20 00:01:39,968 INFO app Processing request: static
+2025-10-20 00:01:39,977 INFO app Processing request: static
+2025-10-20 00:01:39,999 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:01:39,999 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:39] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:01:53,460 INFO app Processing request: task1.index
+2025-10-20 00:01:53,475 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:53] "GET /task1/ HTTP/1.1" 200 -
+2025-10-20 00:01:53,552 INFO app Processing request: static
+2025-10-20 00:01:53,554 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:01:53,559 INFO app Processing request: static
+2025-10-20 00:01:53,563 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:53] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:01:57,018 INFO app Processing request: task1.dataset_info
+2025-10-20 00:01:57,205 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:01:57] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-20 00:02:00,314 INFO app Processing request: task1.train_model
+2025-10-20 00:02:00,474 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:02:00] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-20 00:02:10,207 INFO app Processing request: task1.train_model
+2025-10-20 00:02:10,261 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:02:10] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-20 00:02:14,660 INFO app Processing request: main.health
+2025-10-20 00:02:14,661 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:02:14] "GET /health HTTP/1.1" 200 -
+2025-10-20 00:02:28,310 INFO app Processing request: static
+2025-10-20 00:02:28,604 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:02:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:02:29,808 INFO app Processing request: None
+2025-10-20 00:02:29,809 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:02:29,810 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:02:29] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:03:55,252 INFO app Processing request: task1.train_model
+2025-10-20 00:03:55,312 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:03:55] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-20 00:05:17,110 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-20 00:05:17,111 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-20 00:05:17,149 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task1_routes.py', reloading
+2025-10-20 00:05:21,649 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 00:13:42,072 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:13:42,077 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:13:42,080 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:13:42,174 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 00:13:42,174 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 00:13:42,271 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 00:13:44,959 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:13:44,969 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:13:44,974 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:13:45,446 WARNING werkzeug  * Debugger is active!
+2025-10-20 00:13:45,869 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-20 00:14:43,307 INFO app Processing request: main.index
+2025-10-20 00:14:43,455 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:14:43] "GET / HTTP/1.1" 200 -
+2025-10-20 00:14:43,827 INFO app Processing request: static
+2025-10-20 00:14:43,871 INFO app Processing request: static
+2025-10-20 00:14:44,050 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:14:44] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:14:44,052 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:14:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:16:02,779 INFO app Processing request: None
+2025-10-20 00:16:02,780 INFO app Processing request: static
+2025-10-20 00:16:02,781 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:16:02,782 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:02] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:16:02,784 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:16:10,007 INFO app Processing request: task1.index
+2025-10-20 00:16:10,040 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:10] "GET /task1/ HTTP/1.1" 200 -
+2025-10-20 00:16:10,148 INFO app Processing request: static
+2025-10-20 00:16:10,152 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:16:10,156 INFO app Processing request: static
+2025-10-20 00:16:10,161 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:10] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:16:12,894 INFO app Processing request: task1.dataset_info
+2025-10-20 00:16:13,124 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:13] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-20 00:16:17,153 INFO app Processing request: task1.train_model
+2025-10-20 00:16:17,237 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:17] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-20 00:16:28,213 INFO app Processing request: task1.predict
+2025-10-20 00:16:28,214 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:16:28] "[35m[1mPOST /task1/predict HTTP/1.1[0m" 500 -
+2025-10-20 00:20:34,034 INFO app Processing request: static
+2025-10-20 00:20:34,037 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:20:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:20:34,083 INFO app Processing request: None
+2025-10-20 00:20:34,084 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:20:34,088 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:20:34] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:21:34,346 INFO app Processing request: None
+2025-10-20 00:21:34,346 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:21:34,348 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:21:34] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:28:00,567 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:28:00,573 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:28:00,575 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:28:00,777 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 00:28:00,777 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 00:28:00,905 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 00:28:08,394 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:28:08,397 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:28:08,399 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:28:08,447 WARNING werkzeug  * Debugger is active!
+2025-10-20 00:28:08,462 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-20 00:29:38,356 INFO app Processing request: main.index
+2025-10-20 00:29:38,525 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:29:38] "GET / HTTP/1.1" 200 -
+2025-10-20 00:29:39,122 INFO app Processing request: static
+2025-10-20 00:29:39,138 INFO app Processing request: static
+2025-10-20 00:29:39,175 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:29:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:29:39,176 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:29:39] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:30:41,919 INFO app Processing request: task1.index
+2025-10-20 00:30:41,936 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:30:41] "GET /task1/ HTTP/1.1" 200 -
+2025-10-20 00:30:42,094 INFO app Processing request: static
+2025-10-20 00:30:42,096 INFO app Processing request: static
+2025-10-20 00:30:42,098 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:30:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:30:42,100 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:30:42] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:30:50,541 INFO app Processing request: task1.dataset_info
+2025-10-20 00:30:50,825 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:30:50] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-20 00:30:54,105 INFO app Processing request: task1.train_model
+2025-10-20 00:30:54,193 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:30:54] "[35m[1mPOST /task1/train HTTP/1.1[0m" 500 -
+2025-10-20 00:31:03,348 INFO app Processing request: task1.predict
+2025-10-20 00:31:04,464 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:31:04] "[35m[1mPOST /task1/predict HTTP/1.1[0m" 500 -
+2025-10-20 00:31:18,877 INFO app Processing request: static
+2025-10-20 00:31:18,880 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:31:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:31:18,886 INFO app Processing request: None
+2025-10-20 00:31:18,888 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:31:18,889 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:31:18] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:32:32,057 INFO app Processing request: None
+2025-10-20 00:32:32,061 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:32:32,062 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:32:32] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:39:20,535 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:39:20,544 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:39:20,549 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:39:20,860 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 00:39:20,861 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 00:39:21,017 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 00:39:30,249 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:39:30,254 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:39:30,259 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:39:30,524 WARNING werkzeug  * Debugger is active!
+2025-10-20 00:39:30,542 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-20 00:40:16,406 INFO app Processing request: main.index
+2025-10-20 00:40:16,450 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:16] "GET / HTTP/1.1" 200 -
+2025-10-20 00:40:17,015 INFO app Processing request: static
+2025-10-20 00:40:17,047 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:40:17,083 INFO app Processing request: static
+2025-10-20 00:40:17,118 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:17] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:40:32,495 INFO app Processing request: task1.index
+2025-10-20 00:40:32,511 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:32] "GET /task1/ HTTP/1.1" 200 -
+2025-10-20 00:40:32,650 INFO app Processing request: static
+2025-10-20 00:40:32,652 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:40:32,659 INFO app Processing request: static
+2025-10-20 00:40:32,662 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:40:36,717 INFO app Processing request: task1.dataset_info
+2025-10-20 00:40:37,061 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:37] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-20 00:40:40,175 INFO app Processing request: task1.train_model
+2025-10-20 00:40:40,263 INFO root Initialized decision_tree model
+2025-10-20 00:40:40,346 INFO root Trained decision_tree model with 120 samples
+2025-10-20 00:40:40,361 INFO root Feature importance calculated
+2025-10-20 00:40:43,594 INFO root Model saved to: /home/meshack/Desktop/ml_flask_project/trained_models/iris_decision_tree.pkl
+2025-10-20 00:40:43,595 INFO root Metadata saved to: /home/meshack/Desktop/ml_flask_project/trained_models/iris_decision_tree_metadata.json
+2025-10-20 00:40:43,596 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:43] "POST /task1/train HTTP/1.1" 200 -
+2025-10-20 00:40:43,607 INFO app Processing request: static
+2025-10-20 00:40:43,608 INFO app Processing request: static
+2025-10-20 00:40:43,610 INFO app Processing request: static
+2025-10-20 00:40:43,614 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:40:43,620 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:43] "[33mGET /static/figures/confusion_matrix.png?1760910043602 HTTP/1.1[0m" 404 -
+2025-10-20 00:40:43,614 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:40:43,622 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:43] "[33mGET /static/figures/feature_importance.png?1760910043602 HTTP/1.1[0m" 404 -
+2025-10-20 00:40:43,617 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:40:43,624 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:40:43] "[33mGET /static/figures/metrics_comparison.png?1760910043602 HTTP/1.1[0m" 404 -
+2025-10-20 00:41:00,346 INFO app Processing request: static
+2025-10-20 00:41:00,351 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:41:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:41:00,350 INFO app Processing request: None
+2025-10-20 00:41:00,357 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:41:00,361 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:41:00] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:41:24,419 INFO app Processing request: task1.predict
+2025-10-20 00:41:24,427 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:41:24] "POST /task1/predict HTTP/1.1" 200 -
+2025-10-20 00:41:31,677 INFO app Processing request: None
+2025-10-20 00:41:31,679 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 00:41:31,680 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:41:31] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 00:53:42,432 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:53:42,438 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:53:42,442 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:53:42,569 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 00:53:42,569 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 00:53:42,658 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 00:54:23,679 INFO app Registered blueprint: main with prefix: 
+2025-10-20 00:54:23,682 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 00:54:23,683 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 00:54:23,700 WARNING werkzeug  * Debugger is active!
+2025-10-20 00:54:23,727 INFO werkzeug  * Debugger PIN: 521-068-323
+2025-10-20 00:54:41,184 INFO app Processing request: main.index
+2025-10-20 00:54:41,258 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:41] "GET / HTTP/1.1" 200 -
+2025-10-20 00:54:41,556 INFO app Processing request: static
+2025-10-20 00:54:41,598 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:54:41,617 INFO app Processing request: static
+2025-10-20 00:54:41,652 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:41] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:54:49,478 INFO app Processing request: task1.index
+2025-10-20 00:54:49,489 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:49] "GET /task1/ HTTP/1.1" 200 -
+2025-10-20 00:54:49,777 INFO app Processing request: static
+2025-10-20 00:54:49,781 INFO app Processing request: static
+2025-10-20 00:54:49,784 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:49] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 00:54:49,785 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 00:54:56,573 INFO app Processing request: task1.dataset_info
+2025-10-20 00:54:56,803 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:54:56] "GET /task1/dataset-info HTTP/1.1" 200 -
+2025-10-20 00:55:03,933 INFO app Processing request: task1.train_model
+2025-10-20 00:55:04,060 INFO root Initialized decision_tree model
+2025-10-20 00:55:04,158 INFO root Trained decision_tree model with 120 samples
+2025-10-20 00:55:04,160 INFO root Feature importance calculated
+2025-10-20 00:55:09,773 INFO root Model saved to: /home/meshack/Desktop/ml_flask_project/trained_models/iris_decision_tree.pkl
+2025-10-20 00:55:09,773 INFO root Metadata saved to: /home/meshack/Desktop/ml_flask_project/trained_models/iris_decision_tree_metadata.json
+2025-10-20 00:55:09,774 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:55:09] "POST /task1/train HTTP/1.1" 200 -
+2025-10-20 00:55:09,787 INFO app Processing request: static
+2025-10-20 00:55:09,789 INFO app Processing request: static
+2025-10-20 00:55:09,796 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:55:09] "GET /static/figures/confusion_matrix.png?1760910909782 HTTP/1.1" 200 -
+2025-10-20 00:55:09,790 INFO app Processing request: static
+2025-10-20 00:55:09,799 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:55:09] "GET /static/figures/feature_importance.png?1760910909782 HTTP/1.1" 200 -
+2025-10-20 00:55:09,803 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:55:09] "GET /static/figures/metrics_comparison.png?1760910909782 HTTP/1.1" 200 -
+2025-10-20 00:55:32,596 INFO app Processing request: task1.predict
+2025-10-20 00:55:32,602 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 00:55:32] "POST /task1/predict HTTP/1.1" 200 -
+2025-10-20 12:56:01,255 WARNING matplotlib.font_manager Matplotlib is building the font cache; this may take a moment.
+2025-10-20 12:57:09,082 INFO matplotlib.font_manager generated new fontManager
+2025-10-20 12:59:23,548 INFO app Registered blueprint: main with prefix: 
+2025-10-20 12:59:23,556 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 12:59:23,564 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 12:59:23,982 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 12:59:23,982 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 12:59:25,622 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 12:59:59,922 INFO app Registered blueprint: main with prefix: 
+2025-10-20 12:59:59,925 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 12:59:59,928 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 12:59:59,934 WARNING werkzeug  * Debugger is active!
+2025-10-20 13:00:22,518 INFO werkzeug  * Debugger PIN: 585-967-824
+2025-10-20 13:07:28,325 INFO app Processing request: main.index
+2025-10-20 13:07:34,067 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:34] "GET / HTTP/1.1" 200 -
+2025-10-20 13:07:34,924 INFO app Processing request: static
+2025-10-20 13:07:34,924 INFO app Processing request: static
+2025-10-20 13:07:36,102 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 13:07:36,103 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:36] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 13:07:42,666 INFO app Processing request: None
+2025-10-20 13:07:42,668 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 13:07:42,962 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-20 13:07:58,566 INFO app Processing request: task1.index
+2025-10-20 13:07:58,766 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:58] "GET /task1/ HTTP/1.1" 200 -
+2025-10-20 13:07:58,934 INFO app Processing request: static
+2025-10-20 13:07:58,936 INFO app Processing request: static
+2025-10-20 13:07:58,938 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:58] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 13:07:58,940 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:07:58] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 13:09:02,677 INFO app Processing request: main.index
+2025-10-20 13:09:02,679 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:09:02] "GET / HTTP/1.1" 200 -
+2025-10-20 13:09:02,818 INFO app Processing request: static
+2025-10-20 13:09:02,818 INFO app Processing request: static
+2025-10-20 13:09:02,821 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:09:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 13:09:02,823 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:09:02] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 13:09:12,586 INFO app Processing request: None
+2025-10-20 13:09:12,587 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 13:09:12,588 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:09:12] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 13:09:13,050 INFO app Processing request: static
+2025-10-20 13:09:13,051 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 13:09:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 13:26:28,704 INFO app Registered blueprint: main with prefix: 
+2025-10-20 13:26:28,713 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 13:26:28,727 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 13:26:29,680 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 13:26:29,680 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 13:26:29,991 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 13:27:14,779 INFO app Registered blueprint: main with prefix: 
+2025-10-20 13:27:14,785 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 13:27:14,790 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 13:27:14,982 WARNING werkzeug  * Debugger is active!
+2025-10-20 13:27:15,069 INFO werkzeug  * Debugger PIN: 585-967-824
+2025-10-20 15:21:55,810 INFO app Registered blueprint: main with prefix: 
+2025-10-20 15:21:55,830 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 15:21:55,838 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 15:21:56,310 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 15:21:56,311 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 15:21:56,519 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 15:22:12,860 INFO app Registered blueprint: main with prefix: 
+2025-10-20 15:22:12,865 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 15:22:12,869 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 15:22:12,909 WARNING werkzeug  * Debugger is active!
+2025-10-20 15:22:13,640 INFO werkzeug  * Debugger PIN: 109-252-960
+2025-10-20 15:29:34,733 INFO app Processing request: main.index
+2025-10-20 15:29:34,951 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:34] "GET / HTTP/1.1" 200 -
+2025-10-20 15:29:36,297 INFO app Processing request: static
+2025-10-20 15:29:36,370 INFO app Processing request: static
+2025-10-20 15:29:36,726 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 15:29:36,728 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:36] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 15:29:38,238 INFO app Processing request: None
+2025-10-20 15:29:38,239 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 15:29:38,241 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-20 15:29:48,038 INFO app Processing request: task2.index
+2025-10-20 15:29:48,094 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:48] "GET /task2/ HTTP/1.1" 200 -
+2025-10-20 15:29:48,256 INFO app Processing request: static
+2025-10-20 15:29:48,257 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 15:29:48,397 INFO app Processing request: static
+2025-10-20 15:29:48,398 INFO app Processing request: task2.index
+2025-10-20 15:29:48,400 INFO app Processing request: static
+2025-10-20 15:29:48,403 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:48] "GET /task2/ HTTP/1.1" 200 -
+2025-10-20 15:29:48,405 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:48] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 15:29:48,451 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:48] "GET /static/js/mnist.js HTTP/1.1" 200 -
+2025-10-20 15:29:48,574 INFO app Processing request: task2.model_info
+2025-10-20 15:29:48,575 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:48] "[33mGET /task2/model-info HTTP/1.1[0m" 404 -
+2025-10-20 15:29:49,803 INFO app Processing request: task2.model_info
+2025-10-20 15:29:49,803 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:29:49] "[33mGET /task2/model-info HTTP/1.1[0m" 404 -
+2025-10-20 15:29:54,821 INFO app Processing request: task2.dataset_info
+2025-10-20 15:30:42,620 INFO app Processing request: static
+2025-10-20 15:30:42,623 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:30:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 15:30:42,893 INFO app Processing request: None
+2025-10-20 15:30:42,893 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 15:30:42,895 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:30:42] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-20 15:30:54,036 INFO app Processing request: task2.dataset_info
+2025-10-20 15:32:10,122 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:32:10] "[35m[1mGET /task2/dataset-info HTTP/1.1[0m" 500 -
+2025-10-20 15:33:40,016 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 15:33:40] "GET /task2/dataset-info HTTP/1.1" 200 -
+2025-10-20 15:46:47,781 INFO app Registered blueprint: main with prefix: 
+2025-10-20 15:46:47,790 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 15:57:43,177 INFO app Registered blueprint: main with prefix: 
+2025-10-20 15:57:43,180 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 15:57:43,182 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 15:57:43,936 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 15:57:43,936 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 15:57:44,256 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 15:58:00,387 INFO app Registered blueprint: main with prefix: 
+2025-10-20 15:58:00,390 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 15:58:00,393 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 15:58:00,400 WARNING werkzeug  * Debugger is active!
+2025-10-20 15:58:00,573 INFO werkzeug  * Debugger PIN: 109-252-960
+2025-10-20 16:03:40,487 INFO app Processing request: main.index
+2025-10-20 16:03:40,488 INFO app Processing request: main.index
+2025-10-20 16:03:41,540 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:03:41] "GET / HTTP/1.1" 200 -
+2025-10-20 16:03:41,550 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:03:41] "GET / HTTP/1.1" 200 -
+2025-10-20 16:03:43,226 INFO app Processing request: static
+2025-10-20 16:03:43,290 INFO app Processing request: static
+2025-10-20 16:03:43,862 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:03:43] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 16:03:43,864 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:03:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 16:04:05,756 INFO app Processing request: task2.index
+2025-10-20 16:04:06,172 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:06] "GET /task2/ HTTP/1.1" 200 -
+2025-10-20 16:04:06,209 INFO app Processing request: static
+2025-10-20 16:04:06,210 INFO app Processing request: static
+2025-10-20 16:04:06,212 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 16:04:06,213 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 16:04:06,224 INFO app Processing request: task2.index
+2025-10-20 16:04:06,225 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:06] "GET /task2/ HTTP/1.1" 200 -
+2025-10-20 16:04:06,614 INFO app Processing request: static
+2025-10-20 16:04:06,669 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:06] "[36mGET /static/js/mnist.js HTTP/1.1[0m" 304 -
+2025-10-20 16:04:07,506 INFO app Processing request: task2.model_info
+2025-10-20 16:04:07,507 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:07] "[33mGET /task2/model-info HTTP/1.1[0m" 404 -
+2025-10-20 16:04:07,658 INFO app Processing request: task2.model_info
+2025-10-20 16:04:07,660 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:04:07] "[33mGET /task2/model-info HTTP/1.1[0m" 404 -
+2025-10-20 16:04:14,166 INFO app Processing request: task2.dataset_info
+2025-10-20 16:05:09,396 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task2_routes.py', reloading
+2025-10-20 16:05:23,206 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 16:05:23] "GET /task2/dataset-info HTTP/1.1" 200 -
+2025-10-20 17:35:56,432 INFO app Registered blueprint: main with prefix: 
+2025-10-20 17:35:56,469 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 17:35:56,477 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 17:35:57,015 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-20 17:35:57,015 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-20 17:35:57,227 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 17:36:09,627 INFO app Registered blueprint: main with prefix: 
+2025-10-20 17:36:09,631 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 17:36:09,636 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 17:36:09,648 WARNING werkzeug  * Debugger is active!
+2025-10-20 17:36:10,368 INFO werkzeug  * Debugger PIN: 808-425-977
+2025-10-20 17:39:26,550 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/__init__.py', reloading
+2025-10-20 17:39:26,569 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/blueprints.py', reloading
+2025-10-20 17:39:26,577 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/sansio/blueprints.py', reloading
+2025-10-20 17:39:26,617 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/sansio/scaffold.py', reloading
+2025-10-20 17:39:26,760 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/typing.py', reloading
+2025-10-20 17:39:26,766 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/werkzeug/sansio/response.py', reloading
+2025-10-20 17:39:28,945 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-20 17:39:34,463 INFO app Registered blueprint: main with prefix: 
+2025-10-20 17:39:34,466 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-20 17:39:34,469 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-20 17:39:34,478 WARNING werkzeug  * Debugger is active!
+2025-10-20 17:39:34,479 INFO werkzeug  * Debugger PIN: 808-425-977
+2025-10-20 17:41:03,931 INFO app Processing request: main.index
+2025-10-20 17:41:05,249 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:05] "GET / HTTP/1.1" 200 -
+2025-10-20 17:41:05,544 INFO app Processing request: static
+2025-10-20 17:41:05,822 INFO app Processing request: static
+2025-10-20 17:41:06,821 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 17:41:06,986 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:06] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-10-20 17:41:10,578 INFO app Processing request: None
+2025-10-20 17:41:10,579 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-20 17:41:10,581 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:10] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-20 17:41:24,922 INFO app Processing request: task2.index
+2025-10-20 17:41:25,013 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:25] "GET /task2/ HTTP/1.1" 200 -
+2025-10-20 17:41:25,080 INFO app Processing request: task2.index
+2025-10-20 17:41:25,082 INFO app Processing request: static
+2025-10-20 17:41:25,084 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:25] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-20 17:41:25,084 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:25] "GET /task2/ HTTP/1.1" 200 -
+2025-10-20 17:41:25,174 INFO app Processing request: static
+2025-10-20 17:41:25,177 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-20 17:41:25,331 INFO app Processing request: static
+2025-10-20 17:41:25,334 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:25] "[36mGET /static/js/mnist.js HTTP/1.1[0m" 304 -
+2025-10-20 17:41:25,731 INFO app Processing request: task2.model_info
+2025-10-20 17:41:25,733 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:25] "[33mGET /task2/model-info HTTP/1.1[0m" 404 -
+2025-10-20 17:41:26,320 INFO app Processing request: task2.model_info
+2025-10-20 17:41:26,321 INFO werkzeug 127.0.0.1 - - [20/Oct/2025 17:41:26] "[33mGET /task2/model-info HTTP/1.1[0m" 404 -
+2025-10-20 17:41:44,789 INFO app Processing request: task2.train_model
+2025-10-20 17:42:07,067 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/keras/src/engine/training.py', reloading
+2025-10-21 00:25:14,249 INFO app Registered blueprint: main with prefix: 
+2025-10-21 00:25:14,270 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-21 00:25:14,280 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-21 00:25:14,420 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.91.114:5000
+2025-10-21 00:25:14,420 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-21 00:25:14,557 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-21 00:25:18,125 INFO app Registered blueprint: main with prefix: 
+2025-10-21 00:25:18,127 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-21 00:25:18,130 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-21 00:25:18,135 WARNING werkzeug  * Debugger is active!
+2025-10-21 00:25:18,288 INFO werkzeug  * Debugger PIN: 632-115-859
+2025-10-21 00:25:49,230 INFO app Processing request: main.index
+2025-10-21 00:25:49,280 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:25:49] "GET / HTTP/1.1" 200 -
+2025-10-21 00:25:49,411 INFO app Processing request: static
+2025-10-21 00:25:49,588 INFO app Processing request: static
+2025-10-21 00:25:49,723 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:25:49] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-21 00:25:49,726 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:25:49] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-21 00:25:50,569 INFO app Processing request: None
+2025-10-21 00:25:50,570 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-21 00:25:50,571 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:25:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-21 00:26:11,388 INFO app Processing request: task2.index
+2025-10-21 00:26:11,445 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:11] "GET /task2/ HTTP/1.1" 200 -
+2025-10-21 00:26:11,476 INFO app Processing request: static
+2025-10-21 00:26:11,478 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-21 00:26:11,484 INFO app Processing request: task2.index
+2025-10-21 00:26:11,489 INFO app Processing request: static
+2025-10-21 00:26:11,494 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:11] "GET /task2/ HTTP/1.1" 200 -
+2025-10-21 00:26:11,496 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:11] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-21 00:26:11,542 INFO app Processing request: static
+2025-10-21 00:26:11,557 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:11] "[36mGET /static/js/mnist.js HTTP/1.1[0m" 304 -
+2025-10-21 00:26:11,583 INFO app Processing request: task2.model_info
+2025-10-21 00:26:12,185 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:12] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-21 00:26:12,190 INFO app Processing request: task2.model_info
+2025-10-21 00:26:12,190 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:12] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-21 00:26:29,320 INFO app Processing request: task2.dataset_info
+2025-10-21 00:26:30,738 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:26:30] "GET /task2/dataset-info HTTP/1.1" 200 -
+2025-10-21 00:27:06,032 INFO app Processing request: task2.model_info
+2025-10-21 00:27:06,033 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:27:06] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-21 00:27:08,790 INFO app Processing request: task2.model_info
+2025-10-21 00:27:08,792 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:27:08] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-21 00:27:10,804 INFO app Processing request: task2.model_info
+2025-10-21 00:27:10,805 INFO werkzeug 127.0.0.1 - - [21/Oct/2025 00:27:10] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 15:33:38,045 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:33:38,063 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:33:38,068 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:33:38,076 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:33:38,164 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-22 15:33:38,164 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 15:33:38,266 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 15:33:43,152 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:33:43,154 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:33:43,156 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:33:43,161 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:33:43,168 WARNING werkzeug  * Debugger is active!
+2025-10-22 15:33:43,518 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 15:35:06,353 INFO app Processing request: main.index
+2025-10-22 15:35:06,404 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 15:35:06,420 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 15:35:06,423 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 15:35:06,435 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 15:35:06,448 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/werkzeug/routing/map.py', reloading
+2025-10-22 15:35:06,461 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:35:06] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-10-22 15:35:08,387 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 15:35:13,993 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:35:13,995 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:35:13,998 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:35:14,003 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:35:14,010 WARNING werkzeug  * Debugger is active!
+2025-10-22 15:35:14,010 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 15:35:15,065 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:35:15] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-10-22 15:35:15,066 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:35:15] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-10-22 15:35:15,294 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:35:15] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-10-22 15:35:15,438 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:35:15] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 15:52:59,981 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:52:59,986 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:52:59,990 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:52:59,996 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:53:00,115 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-22 15:53:00,116 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 15:53:00,267 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 15:53:05,135 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:53:05,138 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:53:05,140 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:53:05,145 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:53:05,153 WARNING werkzeug  * Debugger is active!
+2025-10-22 15:53:05,154 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 15:53:59,314 INFO app Processing request: main.index
+2025-10-22 15:53:59,365 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 15:53:59,398 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:53:59] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-10-22 15:53:59,643 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:53:59] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-10-22 15:53:59,644 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:53:59] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:53:59,735 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 15:53:59,736 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 15:53:59,736 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 15:53:59,737 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/werkzeug/routing/map.py', reloading
+2025-10-22 15:54:00,428 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:54:00] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 15:54:01,676 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 15:54:06,833 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:54:06,835 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:54:06,838 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:54:06,843 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:54:06,850 WARNING werkzeug  * Debugger is active!
+2025-10-22 15:54:06,850 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 15:56:02,136 INFO app Processing request: main.index
+2025-10-22 15:56:02,160 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:02] "GET / HTTP/1.1" 200 -
+2025-10-22 15:56:02,337 INFO app Processing request: static
+2025-10-22 15:56:02,352 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:56:02,392 INFO app Processing request: static
+2025-10-22 15:56:02,394 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:02] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 15:56:03,431 INFO app Processing request: None
+2025-10-22 15:56:03,432 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 15:56:03,434 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-22 15:56:07,692 INFO app Processing request: task3.nlp_input
+2025-10-22 15:56:07,721 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:07] "GET /task3/ HTTP/1.1" 200 -
+2025-10-22 15:56:07,777 INFO app Processing request: static
+2025-10-22 15:56:07,779 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:56:07,784 INFO app Processing request: static
+2025-10-22 15:56:07,786 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:07] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 15:56:16,731 INFO app Processing request: task3.analyze_file
+2025-10-22 15:56:17,548 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:17] "POST /task3/analyze_file HTTP/1.1" 200 -
+2025-10-22 15:56:17,608 INFO app Processing request: static
+2025-10-22 15:56:17,611 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:56:17,630 INFO app Processing request: static
+2025-10-22 15:56:17,632 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:17] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 15:56:39,336 INFO app Processing request: task2.index
+2025-10-22 15:56:39,391 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:39] "GET /task2/ HTTP/1.1" 200 -
+2025-10-22 15:56:39,421 INFO app Processing request: static
+2025-10-22 15:56:39,422 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:56:39,433 INFO app Processing request: task2.index
+2025-10-22 15:56:39,434 INFO app Processing request: static
+2025-10-22 15:56:39,436 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:39] "GET /task2/ HTTP/1.1" 200 -
+2025-10-22 15:56:39,438 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:39] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 15:56:39,501 INFO app Processing request: static
+2025-10-22 15:56:39,503 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:39] "[36mGET /static/js/mnist.js HTTP/1.1[0m" 304 -
+2025-10-22 15:56:39,591 INFO app Processing request: task2.model_info
+2025-10-22 15:56:41,565 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:41] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 15:56:41,570 INFO app Processing request: task2.model_info
+2025-10-22 15:56:41,571 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:41] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 15:56:46,317 INFO app Processing request: task2.dataset_info
+2025-10-22 15:56:48,158 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:48] "GET /task2/dataset-info HTTP/1.1" 200 -
+2025-10-22 15:56:54,612 INFO app Processing request: task1.index
+2025-10-22 15:56:54,642 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:54] "GET /task1/ HTTP/1.1" 200 -
+2025-10-22 15:56:54,705 INFO app Processing request: static
+2025-10-22 15:56:54,706 INFO app Processing request: static
+2025-10-22 15:56:54,708 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:56:54,709 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:56:54] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 15:57:19,963 INFO app Processing request: main.about
+2025-10-22 15:57:19,968 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 15:57:19,969 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 15:57:19,972 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 15:57:19,973 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 15:57:20,014 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/loaders.py', reloading
+2025-10-22 15:57:20,033 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:20] "[35m[1mGET /about HTTP/1.1[0m" 500 -
+2025-10-22 15:57:20,060 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:20] "GET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-10-22 15:57:20,065 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:20] "GET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-10-22 15:57:20,103 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:20] "GET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-10-22 15:57:20,134 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:20] "[36mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 15:57:22,078 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 15:57:28,769 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:57:28,771 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:57:28,774 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:57:28,779 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:57:28,788 WARNING werkzeug  * Debugger is active!
+2025-10-22 15:57:28,788 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 15:57:29,811 INFO app Processing request: main.about
+2025-10-22 15:57:29,815 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 15:57:29,833 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:29] "[35m[1mGET /about HTTP/1.1[0m" 500 -
+2025-10-22 15:57:30,032 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:30] "[36mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-10-22 15:57:30,038 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:30] "[36mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-10-22 15:57:30,123 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:30] "[36mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 15:57:30,133 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 15:57:30] "[36mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 15:57:30,182 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 15:57:30,183 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 15:57:30,183 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 15:57:30,184 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/loaders.py', reloading
+2025-10-22 15:57:32,041 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 15:57:37,415 INFO app Registered blueprint: main with prefix: 
+2025-10-22 15:57:37,418 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 15:57:37,421 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 15:57:37,426 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 15:57:37,433 WARNING werkzeug  * Debugger is active!
+2025-10-22 15:57:37,434 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 16:06:37,364 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:06:37,366 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:06:37,369 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:06:37,374 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:06:37,383 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-22 16:06:37,383 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 16:06:37,389 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 16:06:42,308 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:06:42,311 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:06:42,313 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:06:42,318 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:06:42,326 WARNING werkzeug  * Debugger is active!
+2025-10-22 16:06:42,335 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 16:07:05,382 INFO app Processing request: main.index
+2025-10-22 16:07:05,755 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:05] "GET / HTTP/1.1" 200 -
+2025-10-22 16:07:06,297 INFO app Processing request: static
+2025-10-22 16:07:06,321 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 16:07:06,347 INFO app Processing request: static
+2025-10-22 16:07:06,349 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 16:07:10,998 INFO app Processing request: main.about
+2025-10-22 16:07:11,042 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 16:07:11,045 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 16:07:11,049 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 16:07:11,053 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 16:07:11,075 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/werkzeug/routing/map.py', reloading
+2025-10-22 16:07:11,102 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:11] "[35m[1mGET /about HTTP/1.1[0m" 500 -
+2025-10-22 16:07:11,257 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:11] "[36mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-10-22 16:07:11,279 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:11] "[36mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-10-22 16:07:11,409 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:11] "[36mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 16:07:12,699 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 16:07:18,672 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:07:18,675 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:07:18,679 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:07:18,686 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:07:18,694 WARNING werkzeug  * Debugger is active!
+2025-10-22 16:07:18,695 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 16:07:19,770 INFO app Processing request: main.about
+2025-10-22 16:07:19,793 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 16:07:19,813 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:19] "[35m[1mGET /about HTTP/1.1[0m" 500 -
+2025-10-22 16:07:19,914 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:19] "[36mGET /about?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-10-22 16:07:19,914 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:19] "[36mGET /about?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-10-22 16:07:19,940 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:19] "[36mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 16:07:19,959 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:19] "[36mGET /about?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 16:07:20,085 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 16:07:20,085 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 16:07:20,086 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 16:07:20,087 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/werkzeug/routing/map.py', reloading
+2025-10-22 16:07:21,981 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 16:07:27,634 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:07:27,637 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:07:27,639 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:07:27,644 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:07:27,652 WARNING werkzeug  * Debugger is active!
+2025-10-22 16:07:27,652 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 16:07:28,787 INFO app Processing request: task3.nlp_input
+2025-10-22 16:07:28,923 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:28] "GET /task3/ HTTP/1.1" 200 -
+2025-10-22 16:07:28,970 INFO app Processing request: static
+2025-10-22 16:07:28,972 INFO app Processing request: static
+2025-10-22 16:07:28,987 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 16:07:28,994 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:28] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 16:07:39,279 INFO app Processing request: main.health
+2025-10-22 16:07:39,281 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:07:39] "GET /health HTTP/1.1" 200 -
+2025-10-22 16:33:26,765 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:33:26,770 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:33:26,777 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:33:26,780 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:33:26,783 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 16:48:54,695 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:48:54,697 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:48:54,703 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:48:54,704 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:48:54,706 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 16:48:54,829 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-22 16:48:54,830 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 16:48:54,940 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 16:49:00,101 INFO app Registered blueprint: main with prefix: 
+2025-10-22 16:49:00,103 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 16:49:00,109 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 16:49:00,111 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 16:49:00,113 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 16:49:00,120 WARNING werkzeug  * Debugger is active!
+2025-10-22 16:49:00,130 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 16:49:45,766 INFO app Processing request: main.index
+2025-10-22 16:49:45,810 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:49:45] "GET / HTTP/1.1" 200 -
+2025-10-22 16:49:46,810 INFO app Processing request: static
+2025-10-22 16:49:46,855 INFO app Processing request: static
+2025-10-22 16:49:46,908 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:49:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 16:49:46,911 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:49:46] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 16:50:17,534 INFO app Processing request: task1.index
+2025-10-22 16:50:17,566 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:50:17] "GET /task1/ HTTP/1.1" 200 -
+2025-10-22 16:50:17,760 INFO app Processing request: static
+2025-10-22 16:50:17,762 INFO app Processing request: static
+2025-10-22 16:50:17,765 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:50:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 16:50:17,767 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 16:50:17] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 17:03:35,129 INFO app Registered blueprint: main with prefix: 
+2025-10-22 17:03:35,137 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 17:03:35,151 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 17:03:35,155 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 17:03:35,162 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 17:03:35,565 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-22 17:03:35,565 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 17:03:35,717 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 17:03:41,848 INFO app Registered blueprint: main with prefix: 
+2025-10-22 17:03:41,851 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 17:03:41,857 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 17:03:41,858 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 17:03:41,860 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 17:03:42,073 WARNING werkzeug  * Debugger is active!
+2025-10-22 17:03:42,075 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 17:04:41,656 INFO app Processing request: main.index
+2025-10-22 17:04:41,721 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/app.py', reloading
+2025-10-22 17:04:41,728 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/main.py', reloading
+2025-10-22 17:04:41,730 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/flask/templating.py', reloading
+2025-10-22 17:04:41,743 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/jinja2/environment.py', reloading
+2025-10-22 17:04:41,757 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/werkzeug/routing/map.py', reloading
+2025-10-22 17:04:41,779 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:04:41] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-10-22 17:04:42,176 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:04:42] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-10-22 17:04:42,178 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:04:42] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-10-22 17:04:44,350 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 17:04:50,018 INFO app Registered blueprint: main with prefix: 
+2025-10-22 17:04:50,020 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 17:04:50,029 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 17:04:50,032 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 17:04:50,037 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 17:04:50,045 WARNING werkzeug  * Debugger is active!
+2025-10-22 17:04:50,046 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 17:04:54,129 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:04:54] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 17:04:55,680 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:04:55] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-10-22 17:08:12,455 INFO werkzeug  * Detected change in '/home/meshack/Desktop/ml_flask_project/app/routes/task3_routes.py', reloading
+2025-10-22 17:11:38,578 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 17:22:20,021 INFO app Registered blueprint: main with prefix: 
+2025-10-22 17:22:20,029 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 17:22:20,043 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 17:22:20,047 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 17:22:20,052 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 17:22:20,160 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.124:5000
+2025-10-22 17:22:20,160 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 17:22:20,270 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 17:22:25,344 INFO app Registered blueprint: main with prefix: 
+2025-10-22 17:22:25,347 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 17:22:25,352 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 17:22:25,354 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 17:22:25,356 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 17:22:25,363 WARNING werkzeug  * Debugger is active!
+2025-10-22 17:22:25,494 INFO werkzeug  * Debugger PIN: 113-117-981
+2025-10-22 17:23:07,010 INFO app Processing request: main.index
+2025-10-22 17:23:07,085 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:07] "GET / HTTP/1.1" 200 -
+2025-10-22 17:23:07,498 INFO app Processing request: static
+2025-10-22 17:23:07,544 INFO app Processing request: static
+2025-10-22 17:23:07,676 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 17:23:07,677 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:07] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 17:23:19,332 INFO app Processing request: ethics.ethics_dashboard
+2025-10-22 17:23:19,361 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:19] "GET /ethics/ HTTP/1.1" 200 -
+2025-10-22 17:23:19,499 INFO app Processing request: static
+2025-10-22 17:23:19,501 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 17:23:19,544 INFO app Processing request: static
+2025-10-22 17:23:19,546 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:19] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 17:23:22,808 INFO app Processing request: ethics.run_buggy_code
+2025-10-22 17:23:23,424 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:23] "GET /ethics/run_buggy_code HTTP/1.1" 200 -
+2025-10-22 17:23:30,602 INFO app Processing request: ethics.run_fixed_code
+2025-10-22 17:23:33,534 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:33] "GET /ethics/run_fixed_code HTTP/1.1" 200 -
+2025-10-22 17:23:45,766 INFO app Processing request: ethics.ethics_dashboard
+2025-10-22 17:23:45,769 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:45] "GET /ethics/ HTTP/1.1" 200 -
+2025-10-22 17:23:45,846 INFO app Processing request: static
+2025-10-22 17:23:45,849 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 17:23:45,855 INFO app Processing request: static
+2025-10-22 17:23:45,856 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:45] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 17:23:47,266 INFO app Processing request: main.about
+2025-10-22 17:23:47,292 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:47] "GET /about HTTP/1.1" 200 -
+2025-10-22 17:23:47,358 INFO app Processing request: static
+2025-10-22 17:23:47,359 INFO app Processing request: static
+2025-10-22 17:23:47,362 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 17:23:47,363 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 17:23:47] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 22:53:12,032 INFO app Registered blueprint: main with prefix: 
+2025-10-22 22:53:12,048 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 22:53:12,059 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 22:53:12,061 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 22:53:12,065 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 22:53:12,187 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.150.114:5000
+2025-10-22 22:53:12,187 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 22:53:12,298 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 22:53:27,821 INFO app Registered blueprint: main with prefix: 
+2025-10-22 22:53:27,832 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 22:53:27,840 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 22:53:27,842 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 22:53:27,844 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 22:53:27,948 WARNING werkzeug  * Debugger is active!
+2025-10-22 22:53:28,109 INFO werkzeug  * Debugger PIN: 490-654-077
+2025-10-22 22:54:24,483 INFO app Processing request: main.index
+2025-10-22 22:54:25,729 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:54:25] "GET / HTTP/1.1" 200 -
+2025-10-22 22:54:25,992 INFO app Processing request: static
+2025-10-22 22:54:26,004 INFO app Processing request: static
+2025-10-22 22:54:26,203 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:54:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 22:54:26,204 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:54:26] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 22:54:26,647 INFO app Processing request: None
+2025-10-22 22:54:26,656 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 22:54:26,730 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:54:26] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-10-22 22:55:12,859 INFO app Processing request: task3.index
+2025-10-22 22:55:13,114 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:55:13] "GET /task3/index HTTP/1.1" 200 -
+2025-10-22 22:55:13,158 INFO app Processing request: static
+2025-10-22 22:55:13,160 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:55:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 22:55:13,164 INFO app Processing request: static
+2025-10-22 22:55:13,166 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:55:13] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 22:55:34,823 INFO app Processing request: task3.analyze_text
+2025-10-22 22:55:37,182 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:55:37] "[35m[1mPOST /task3/analyze HTTP/1.1[0m" 500 -
+2025-10-22 22:55:56,090 INFO app Processing request: task3.analyze_text
+2025-10-22 22:55:56,143 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:55:56] "[35m[1mPOST /task3/analyze HTTP/1.1[0m" 500 -
+2025-10-22 22:56:03,287 INFO app Processing request: None
+2025-10-22 22:56:03,287 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 22:56:03,288 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:56:03] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-22 22:56:12,544 INFO app Processing request: None
+2025-10-22 22:56:12,544 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 22:56:12,545 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:56:12] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-22 22:56:12,546 INFO app Processing request: static
+2025-10-22 22:56:12,549 INFO app Processing request: None
+2025-10-22 22:56:12,551 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 22:56:12,553 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:56:12] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-22 22:56:12,553 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:56:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 22:56:12,784 INFO app Processing request: task3.analyze_file
+2025-10-22 22:56:12,786 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:56:12] "[33mPOST /task3/analyze_file HTTP/1.1[0m" 404 -
+2025-10-22 22:56:20,689 INFO app Processing request: task3.analyze_text
+2025-10-22 22:56:20,846 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:56:20] "[35m[1mPOST /task3/analyze HTTP/1.1[0m" 500 -
+2025-10-22 22:58:55,549 INFO app Registered blueprint: main with prefix: 
+2025-10-22 22:58:55,568 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 22:58:55,574 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 22:58:55,576 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 22:58:55,577 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 22:58:55,586 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.150.114:5000
+2025-10-22 22:58:55,586 INFO werkzeug [33mPress CTRL+C to quit[0m
+2025-10-22 22:58:55,592 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 22:59:05,393 INFO app Registered blueprint: main with prefix: 
+2025-10-22 22:59:05,395 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 22:59:05,401 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 22:59:05,403 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 22:59:05,405 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 22:59:05,412 WARNING werkzeug  * Debugger is active!
+2025-10-22 22:59:05,426 INFO werkzeug  * Debugger PIN: 490-654-077
+2025-10-22 22:59:24,827 INFO app Processing request: main.index
+2025-10-22 22:59:24,914 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:24] "GET / HTTP/1.1" 200 -
+2025-10-22 22:59:25,360 INFO app Processing request: static
+2025-10-22 22:59:25,368 INFO app Processing request: static
+2025-10-22 22:59:25,379 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:25] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 22:59:25,387 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 22:59:32,648 INFO app Processing request: task3.index
+2025-10-22 22:59:32,691 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:32] "GET /task3/index HTTP/1.1" 200 -
+2025-10-22 22:59:32,723 INFO app Processing request: static
+2025-10-22 22:59:32,724 INFO app Processing request: static
+2025-10-22 22:59:32,728 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 22:59:32,734 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:32] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 22:59:35,619 INFO app Processing request: task3.analyze_file
+2025-10-22 22:59:36,354 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:36] "POST /task3/analyze_file HTTP/1.1" 200 -
+2025-10-22 22:59:36,400 INFO app Processing request: static
+2025-10-22 22:59:36,401 INFO app Processing request: static
+2025-10-22 22:59:36,403 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 22:59:36,404 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:36] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 22:59:44,904 INFO app Processing request: task3.analyze_text
+2025-10-22 22:59:44,964 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:44] "[35m[1mPOST /task3/analyze HTTP/1.1[0m" 500 -
+2025-10-22 22:59:57,294 INFO app Processing request: task3.analyze_text
+2025-10-22 22:59:57,349 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 22:59:57] "[35m[1mPOST /task3/analyze HTTP/1.1[0m" 500 -
+2025-10-22 23:00:02,320 INFO app Processing request: static
+2025-10-22 23:00:02,322 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:00:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:00:02,371 INFO app Processing request: None
+2025-10-22 23:00:02,372 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 23:00:02,373 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:00:02] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-22 23:00:15,516 INFO app Processing request: task3.analyze_text
+2025-10-22 23:00:15,564 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:00:15] "[35m[1mPOST /task3/analyze HTTP/1.1[0m" 500 -
+2025-10-22 23:02:13,623 INFO app Processing request: main.index
+2025-10-22 23:02:13,636 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:13] "GET / HTTP/1.1" 200 -
+2025-10-22 23:02:13,668 INFO app Processing request: static
+2025-10-22 23:02:13,676 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:02:13,670 INFO app Processing request: static
+2025-10-22 23:02:13,679 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:13] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 23:02:17,928 INFO app Processing request: task1.index
+2025-10-22 23:02:17,951 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:17] "GET /task1/ HTTP/1.1" 200 -
+2025-10-22 23:02:17,977 INFO app Processing request: static
+2025-10-22 23:02:17,978 INFO app Processing request: static
+2025-10-22 23:02:17,980 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:02:17,982 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:17] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 23:02:34,197 INFO app Processing request: task1.predict
+2025-10-22 23:02:34,268 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/sklearn/base.py', reloading
+2025-10-22 23:02:34,274 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:34] "POST /task1/predict HTTP/1.1" 200 -
+2025-10-22 23:02:37,521 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 23:02:44,376 INFO app Registered blueprint: main with prefix: 
+2025-10-22 23:02:44,378 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 23:02:44,384 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 23:02:44,387 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 23:02:44,391 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 23:02:44,397 WARNING werkzeug  * Debugger is active!
+2025-10-22 23:02:44,398 INFO werkzeug  * Debugger PIN: 490-654-077
+2025-10-22 23:02:45,955 INFO app Processing request: task2.index
+2025-10-22 23:02:46,000 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:46] "GET /task2/ HTTP/1.1" 200 -
+2025-10-22 23:02:46,079 INFO app Processing request: static
+2025-10-22 23:02:46,089 INFO app Processing request: static
+2025-10-22 23:02:46,098 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:02:46,100 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:46] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 23:02:46,103 INFO app Processing request: task2.index
+2025-10-22 23:02:46,105 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:46] "GET /task2/ HTTP/1.1" 200 -
+2025-10-22 23:02:46,107 INFO app Processing request: static
+2025-10-22 23:02:46,109 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:46] "[36mGET /static/js/mnist.js HTTP/1.1[0m" 304 -
+2025-10-22 23:02:46,146 INFO app Processing request: task2.model_info
+2025-10-22 23:02:48,840 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:48] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 23:02:48,893 INFO app Processing request: task2.model_info
+2025-10-22 23:02:48,894 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:02:48] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 23:03:00,255 INFO app Processing request: task2.predict
+2025-10-22 23:03:00,919 INFO werkzeug  * Detected change in '/home/meshack/.local/lib/python3.10/site-packages/keras/src/engine/training.py', reloading
+2025-10-22 23:03:02,058 INFO werkzeug  * Restarting with watchdog (inotify)
+2025-10-22 23:03:07,449 INFO app Registered blueprint: main with prefix: 
+2025-10-22 23:03:07,452 INFO app Registered blueprint: task1 with prefix: /task1
+2025-10-22 23:03:07,458 INFO app Registered blueprint: task2 with prefix: /task2
+2025-10-22 23:03:07,459 INFO app Registered blueprint: task3 with prefix: /task3
+2025-10-22 23:03:07,462 INFO app Registered blueprint: ethics with prefix: /ethics
+2025-10-22 23:03:07,469 WARNING werkzeug  * Debugger is active!
+2025-10-22 23:03:07,469 INFO werkzeug  * Debugger PIN: 490-654-077
+2025-10-22 23:03:08,860 INFO app Processing request: static
+2025-10-22 23:03:08,905 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:03:08,909 INFO app Processing request: None
+2025-10-22 23:03:08,914 WARNING app 404 error: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-10-22 23:03:08,920 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:08] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-10-22 23:03:28,465 INFO app Processing request: task2.index
+2025-10-22 23:03:28,491 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:28] "GET /task2/ HTTP/1.1" 200 -
+2025-10-22 23:03:28,525 INFO app Processing request: static
+2025-10-22 23:03:28,527 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:03:28,532 INFO app Processing request: static
+2025-10-22 23:03:28,533 INFO app Processing request: static
+2025-10-22 23:03:28,536 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:28] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 23:03:28,536 INFO app Processing request: task2.index
+2025-10-22 23:03:28,539 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:28] "[36mGET /static/js/mnist.js HTTP/1.1[0m" 304 -
+2025-10-22 23:03:28,541 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:28] "GET /task2/ HTTP/1.1" 200 -
+2025-10-22 23:03:28,566 INFO app Processing request: task2.model_info
+2025-10-22 23:03:29,453 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:29] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 23:03:29,457 INFO app Processing request: task2.model_info
+2025-10-22 23:03:29,458 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:03:29] "GET /task2/model-info HTTP/1.1" 200 -
+2025-10-22 23:04:30,512 INFO app Processing request: ethics.ethics_dashboard
+2025-10-22 23:04:30,530 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:04:30] "GET /ethics/ HTTP/1.1" 200 -
+2025-10-22 23:04:30,566 INFO app Processing request: static
+2025-10-22 23:04:30,567 INFO app Processing request: static
+2025-10-22 23:04:30,571 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:04:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-10-22 23:04:30,574 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:04:30] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-10-22 23:04:35,609 INFO app Processing request: ethics.analyze_biases
+2025-10-22 23:04:35,641 INFO werkzeug 127.0.0.1 - - [22/Oct/2025 23:04:35] "POST /ethics/analyze_biases HTTP/1.1" 200 -

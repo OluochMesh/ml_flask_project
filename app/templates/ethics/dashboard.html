@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}Ethics & Optimization - Part 3{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="display-5 fw-bold text-warning">
+        <i class="bi bi-shield-check"></i> Part 3: Ethics & Optimization
+    </h1>
+    <p class="lead">Bias detection and model debugging challenges</p>
+
+    <div class="row g-4">
+        <!-- Bias Analysis Card -->
+        <div class="col-md-6">
+            <div class="card border-warning h-100">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">
+                        <i class="bi bi-graph-up"></i> Ethical Considerations
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p>Analyze potential biases in your ML models and generate fairness reports.</p>
+                    <ul>
+                        <li>MNIST digit recognition bias analysis</li>
+                        <li>Amazon reviews sentiment fairness</li>
+                        <li>Demographic parity metrics</li>
+                        <li>Fairness recommendations</li>
+                    </ul>
+                    <button id="analyzeBiases" class="btn btn-warning btn-lg w-100">
+                        <i class="bi bi-search"></i> Analyze Biases
+                    </button>
+                    <div id="biasResults" class="mt-3" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Debug Challenge Card -->
+        <div class="col-md-6">
+            <div class="card border-danger h-100">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-bug"></i> Troubleshooting Challenge
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p>Debug a TensorFlow script with intentional errors and learn proper fixes.</p>
+                    <ul>
+                        <li>Dimension mismatches</li>
+                        <li>Incorrect loss functions</li>
+                        <li>Data preprocessing errors</li>
+                        <li>Model architecture issues</li>
+                    </ul>
+                    <div class="d-grid gap-2">
+                        <button id="runBuggy" class="btn btn-outline-danger">
+                            <i class="bi bi-play-circle"></i> Run Buggy Code
+                        </button>
+                        <button id="runFixed" class="btn btn-success">
+                            <i class="bi bi-check-circle"></i> Run Fixed Code
+                        </button>
+                    </div>
+                    <div id="debugResults" class="mt-3" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div id="resultsSection" style="display: none;">
+                <!-- Results will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('analyzeBiases').addEventListener('click', function() {
+    const button = this;
+    button.innerHTML = '<i class="bi bi-hourglass-split"></i> Analyzing...';
+    button.disabled = true;
+
+    fetch('/ethics/analyze_biases', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const results = document.getElementById('resultsSection');
+            results.innerHTML = `
+                <div class="card border-success">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-check-circle"></i> Bias Analysis Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Summary:</h6>
+                        <pre class="bg-light p-3">${JSON.stringify(data.report.summary, null, 2)}</pre>
+                        
+                        <h6>Recommendations:</h6>
+                        <ul>
+                            ${data.report.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+            results.style.display = 'block';
+        }
+    })
+    .finally(() => {
+        button.innerHTML = '<i class="bi bi-search"></i> Analyze Biases';
+        button.disabled = false;
+    });
+});
+
+document.getElementById('runBuggy').addEventListener('click', function() {
+    const button = this;
+    button.innerHTML = '<i class="bi bi-hourglass-split"></i> Running...';
+    
+    fetch('/ethics/run_buggy_code')
+    .then(response => response.json())
+    .then(data => {
+        const results = document.getElementById('resultsSection');
+        if (!data.success) {
+            results.innerHTML = `
+                <div class="card border-danger">
+                    <div class="card-header bg-danger text-white">
+                        <h5 class="mb-0"><i class="bi bi-exclamation-triangle"></i> Buggy Code Result</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-danger">
+                            <strong>Expected Failure:</strong> The buggy code failed as intended.
+                        </div>
+                        <p><strong>Error Type:</strong> ${data.error_type}</p>
+                        <p><strong>Message:</strong> ${data.error_message}</p>
+                        <p class="text-success">${data.message}</p>
+                    </div>
+                </div>
+            `;
+        }
+        results.style.display = 'block';
+    })
+    .finally(() => {
+        button.innerHTML = '<i class="bi bi-play-circle"></i> Run Buggy Code';
+    });
+});
+
+document.getElementById('runFixed').addEventListener('click', function() {
+    const button = this;
+    button.innerHTML = '<i class="bi bi-hourglass-split"></i> Running...';
+    
+    fetch('/ethics/run_fixed_code')
+    .then(response => response.json())
+    .then(data => {
+        const results = document.getElementById('resultsSection');
+        if (data.success) {
+            results.innerHTML = `
+                <div class="card border-success">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="bi bi-check-circle"></i> Fixed Code Result</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success">
+                            <strong>Success:</strong> ${data.message}
+                        </div>
+                        <p><strong>Model Status:</strong> ${data.model_summary}</p>
+                        
+                        <h6>Bugs Fixed (${data.fixes_applied.length} total):</h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Bug Description</th>
+                                        <th>Fix Applied</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.fixes_applied.map((fix, index) => `
+                                        <tr>
+                                            <td>${index + 1}</td>
+                                            <td>${fix.bug}</td>
+                                            <td>${fix.fix}</td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        results.style.display = 'block';
+    })
+    .finally(() => {
+        button.innerHTML = '<i class="bi bi-check-circle"></i> Run Fixed Code';
+    });
+});
+</script>
+{% endblock %}

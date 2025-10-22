@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block title %}Home - ML Flask Portfolio{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 4rem 0;
+        border-radius: 15px;
+        margin-bottom: 3rem;
+    }
+    .feature-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 15px;
+    }
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .task-card {
+        height: 100%;
+    }
+    .tech-badge {
+        font-size: 0.8rem;
+        margin: 0.1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4">
+            <i class="bi bi-cpu-fill"></i> ML Flask Portfolio
+        </h1>
+        <p class="lead mb-4">
+            A comprehensive machine learning application showcasing classical ML, deep learning, 
+            natural language processing, and ethical AI considerations.
+        </p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="{{ url_for('task1.index') }}" class="btn btn-light btn-lg me-md-2">
+                        <i class="bi bi-play-circle"></i> Get Started
+                    </a>
+                    <a href="{{ url_for('main.about') }}" class="btn btn-outline-light btn-lg">
+                        <i class="bi bi-info-circle"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Overview -->
+<section class="mb-5">
+    <div class="row text-center mb-4">
+        <div class="col">
+            <h2 class="fw-bold">Featured Machine Learning Tasks</h2>
+            <p class="text-muted">Explore different aspects of machine learning through practical implementations</p>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <!-- Task 1: Iris Classification -->
+        <div class="col-md-3">
+            <div class="card feature-card task-card border-primary">
+                <div class="card-body">
+                    <div class="text-primary mb-3">
+                        <i class="bi bi-flower1" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Task 1: Iris Classification</h4>
+                    <p class="card-text">
+                        Classical machine learning using scikit-learn to classify iris flower species 
+                        based on their measurements with a Decision Tree classifier.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge tech-badge bg-primary">scikit-learn</span>
+                        <span class="badge tech-badge bg-primary">Decision Tree</span>
+                        <span class="badge tech-badge bg-primary">Classification</span>
+                    </div>
+                    <a href="{{ url_for('task1.index') }}" class="btn btn-primary">
+                        <i class="bi bi-arrow-right"></i> Explore Task 1
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 2: MNIST Recognition -->
+        <div class="col-md-3">
+            <div class="card feature-card task-card border-success">
+                <div class="card-body">
+                    <div class="text-success mb-3">
+                        <i class="bi bi-123" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Task 2: MNIST Recognition</h4>
+                    <p class="card-text">
+                        Deep learning with TensorFlow/Keras to recognize handwritten digits using 
+                        Convolutional Neural Networks (CNNs) with >95% accuracy.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge tech-badge bg-success">TensorFlow</span>
+                        <span class="badge tech-badge bg-success">CNN</span>
+                        <span class="badge tech-badge bg-success">Deep Learning</span>
+                    </div>
+                    <a href="{{ url_for('task2.index') }}" class="btn btn-success">
+                        <i class="bi bi-arrow-right"></i> Explore Task 2
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task 3: NLP Analysis -->
+        <div class="col-md-3">
+            <div class="card feature-card task-card border-info">
+                <div class="card-body">
+                    <div class="text-info mb-3">
+                        <i class="bi bi-chat-text" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Task 3: NLP Analysis</h4>
+                    <p class="card-text">
+                        Natural Language Processing with spaCy for named entity recognition and 
+                        sentiment analysis on Amazon product reviews.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge tech-badge bg-info">spaCy</span>
+                        <span class="badge tech-badge bg-info">NER</span>
+                        <span class="badge tech-badge bg-info">Sentiment Analysis</span>
+                    </div>
+                    <a href="{{ url_for('task3.index') }}" class="btn btn-info">
+                        <i class="bi bi-arrow-right"></i> Explore Task 3
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 3: Ethics & Optimization -->
+        <div class="col-md-3">
+            <div class="card feature-card task-card border-warning">
+                <div class="card-body">
+                    <div class="text-warning mb-3">
+                        <i class="bi bi-shield-check" style="font-size: 3rem;"></i>
+                    </div>
+                    <h4 class="card-title">Part 3: Ethics & Optimization</h4>
+                    <p class="card-text">
+                        Bias detection in ML models and debugging challenges with TensorFlow code. 
+                        Explore ethical considerations in AI systems.
+                    </p>
+                    <div class="mb-3">
+                        <span class="badge tech-badge bg-warning">Bias Detection</span>
+                        <span class="badge tech-badge bg-warning">Debugging</span>
+                        <span class="badge tech-badge bg-warning">Fairness</span>
+                    </div>
+                    <a href="{{ url_for('ethics.ethics_dashboard') }}" class="btn btn-warning">
+                        <i class="bi bi-arrow-right"></i> Explore Ethics
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Stats -->
+<section class="mb-5">
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-collection-play text-primary" style="font-size: 2rem;"></i>
+                    <h3 class="mt-2">4</h3>
+                    <p class="text-muted mb-0">ML Components</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-code-slash text-success" style="font-size: 2rem;"></i>
+                    <h3 class="mt-2">10+</h3>
+                    <p class="text-muted mb-0">Technologies</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-graph-up text-warning" style="font-size: 2rem;"></i>
+                    <h3 class="mt-2">95%+</h3>
+                    <p class="text-muted mb-0">Accuracy</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <i class="bi bi-lightning-charge text-info" style="font-size: 2rem;"></i>
+                    <h3 class="mt-2">Real-time</h3>
+                    <p class="text-muted mb-0">Predictions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Start Section -->
+<section class="mb-5">
+    <div class="card">
+        <div class="card-header bg-light">
+            <h4 class="mb-0"><i class="bi bi-rocket-takeoff"></i> Quick Start</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5>Ready to Use</h5>
+                    <p>All components are fully implemented and ready to use:</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card bg-light mb-3 h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-flower1 text-primary" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Task 1: Iris</h6>
+                                    <p class="small">Classical ML with Decision Trees</p>
+                                    <a href="{{ url_for('task1.index') }}" class="btn btn-primary btn-sm">
+                                        Try Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-light mb-3 h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-123 text-success" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Task 2: MNIST</h6>
+                                    <p class="small">Deep Learning with CNNs</p>
+                                    <a href="{{ url_for('task2.index') }}" class="btn btn-success btn-sm">
+                                        Try Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-light mb-3 h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-chat-text text-info" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Task 3: NLP</h6>
+                                    <p class="small">Named Entity Recognition & Sentiment Analysis</p>
+                                    <a href="{{ url_for('task3.index') }}" class="btn btn-info btn-sm">
+                                        Try Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-light mb-3 h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-shield-check text-warning" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Part 3: Ethics</h6>
+                                    <p class="small">Bias Detection & Debugging</p>
+                                    <a href="{{ url_for('ethics.ethics_dashboard') }}" class="btn btn-warning btn-sm">
+                                        Try Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Project Features</h5>
+                    <div class="alert alert-success">
+                        <i class="bi bi-check-circle"></i> <strong>Complete:</strong> All 3 ML tasks implemented
+                    </div>
+                    <div class="alert alert-info">
+                        <i class="bi bi-check-circle"></i> <strong>Complete:</strong> Ethics & optimization
+                    </div>
+                    <div class="alert alert-primary">
+                        <i class="bi bi-check-circle"></i> <strong>Complete:</strong> Web interface with Flask
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

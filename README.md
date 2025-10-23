@@ -323,8 +323,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
+- GitHub: [@OluochMesh](https://github.com/OluochMesh)
+- Email: meshackoluoch83@gmail.com
 
 ## 🙏 Acknowledgments
 
@@ -353,4 +353,4 @@ For issues, questions, or suggestions:
 
 ---
 
-**Built with ❤️ using Flask, TensorFlow, and spaCy**
+**Built  using Flask, TensorFlow, and spaCy**
